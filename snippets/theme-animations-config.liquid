@@ -1,0 +1,16 @@
+{%- comment -%}
+Theme animation settings as JS config for GSAP
+{%- endcomment -%}
+<script id="theme-animations-config">
+  window.themeAnimations = {
+    enabled: {{ settings.animations_enabled | default: true | json }},
+    respectReducedMotion: {{ settings.animations_respect_reduced_motion | default: true | json }},
+    defaultStyle: {{ settings.animations_default_style | default: 'fade-in' | json }},
+    defaultDuration: {{ settings.animations_default_duration | default: 0.6 | json }},
+    defaultDelay: {{ settings.animations_default_delay | default: 0 | json }},
+    defaultStagger: {{ settings.animations_default_stagger | default: 0.05 | json }},
+    defaultEase: {{ settings.animations_default_ease | default: 'power2.out' | json }},
+    scrollTrigger: {{ settings.animations_scroll_trigger | default: 'enter' | json }},
+    repeat: {{ settings.animations_repeat | default: 'once' | json }}
+  };
+</script>

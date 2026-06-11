@@ -1,0 +1,17 @@
+{% comment %}
+Final CTA Section - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="final-cta section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="final-cta__container">
+    <h2>Ready to refresh your wardrobe?</h2>
+    <a href="/collections/all" class="button button-primary">Shop Now</a>
+  </div>
+</section>
+{% schema %}{
+  "name": "Final CTA",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Final CTA" } ]
+}{% endschema %}

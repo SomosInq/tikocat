@@ -1,0 +1,28 @@
+{% comment %}
+FAQ - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="faq section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="faq__container">
+    <h3>Frequently Asked Questions</h3>
+    <details>
+      <summary>What is your return policy?</summary>
+      <p>We offer easy 30-day returns on all orders.</p>
+    </details>
+    <details>
+      <summary>How long does shipping take?</summary>
+      <p>Standard UK shipping is 2-3 business days. Next-day options available.</p>
+    </details>
+    <details>
+      <summary>Are your products ethically made?</summary>
+      <p>Yes, all our products are ethically sourced and produced.</p>
+    </details>
+  </div>
+</section>
+{% schema %}{
+  "name": "FAQ",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "FAQ" } ]
+}{% endschema %}

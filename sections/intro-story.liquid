@@ -1,0 +1,17 @@
+{% comment %}
+Short Intro Story - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="intro-story section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="intro-story__container">
+    <h2>Our Story</h2>
+    <p>Founded in London, Somos brings you timeless fashion with a modern twist. Our mission is to empower self-expression through style, quality, and sustainability.</p>
+  </div>
+</section>
+{% schema %}{
+  "name": "Intro Story",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Intro Story" } ]
+}{% endschema %}

@@ -1,0 +1,19 @@
+{% comment %}
+Key Benefits Grid - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="benefits-grid section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="benefits-grid__container">
+    <div class="benefits-grid__item"><strong>Premium Fabrics</strong><br>Feel the difference in every piece</div>
+    <div class="benefits-grid__item"><strong>Inclusive Sizing</strong><br>Styles for every body</div>
+    <div class="benefits-grid__item"><strong>Fast Dispatch</strong><br>Next-day shipping available</div>
+    <div class="benefits-grid__item"><strong>Eco Packaging</strong><br>100% recyclable materials</div>
+  </div>
+</section>
+{% schema %}{
+  "name": "Benefits Grid",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Benefits Grid" } ]
+}{% endschema %}

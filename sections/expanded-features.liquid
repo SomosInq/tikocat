@@ -1,0 +1,22 @@
+{% comment %}
+Expanded Features - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="expanded-features section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="expanded-features__container">
+    <h3>Why Choose Somos?</h3>
+    <ul>
+      <li>On-trend seasonal drops</li>
+      <li>Exclusive member offers</li>
+      <li>Personal styling advice</li>
+      <li>Conscious production</li>
+    </ul>
+  </div>
+</section>
+{% schema %}{
+  "name": "Expanded Features",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Expanded Features" } ]
+}{% endschema %}

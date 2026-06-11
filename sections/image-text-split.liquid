@@ -1,0 +1,22 @@
+{% comment %}
+Image/Text Split Section - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="image-text-split section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="image-text-split__container">
+    <div class="image-text-split__image">
+      <img src="https://placehold.co/600x800" alt="Fashion Look" />
+    </div>
+    <div class="image-text-split__text">
+      <h3>Effortless Style</h3>
+      <p>Discover our latest collection, designed for comfort and confidence—wherever life takes you.</p>
+    </div>
+  </div>
+</section>
+{% schema %}{
+  "name": "Image/Text Split",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Image/Text Split" } ]
+}{% endschema %}

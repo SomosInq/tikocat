@@ -1,0 +1,17 @@
+{% comment %}
+Immediate Social Proof - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="social-proof section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="social-proof__container">
+    <div class="social-proof__stars">★★★★★</div>
+    <div class="social-proof__reviews">Rated 4.9/5 by 2,000+ happy customers</div>
+  </div>
+</section>
+{% schema %}{
+  "name": "Social Proof",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Social Proof" } ]
+}{% endschema %}

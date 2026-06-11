@@ -1,0 +1,26 @@
+{% comment %}
+Comparison Table - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="comparison-table section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="comparison-table__container">
+    <table>
+      <thead>
+        <tr><th></th><th>Somos</th><th>Other Brands</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ethical Sourcing</td><td>✔️</td><td>❌</td></tr>
+        <tr><td>Inclusive Sizing</td><td>✔️</td><td>❌</td></tr>
+        <tr><td>Fast Dispatch</td><td>✔️</td><td>❌</td></tr>
+        <tr><td>Eco Packaging</td><td>✔️</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% schema %}{
+  "name": "Comparison Table",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Comparison Table" } ]
+}{% endschema %}

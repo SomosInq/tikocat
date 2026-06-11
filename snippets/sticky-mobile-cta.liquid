@@ -1,0 +1,12 @@
+{% comment %}
+Sticky Mobile CTA - Fashion Store
+{% endcomment %}
+<div class="sticky-mobile-cta" style="position:fixed;bottom:0;left:0;width:100%;z-index:1000;display:none;">
+  <a href="/collections/all" class="button button-primary" style="width:100%;border-radius:0;">Shop the Collection</a>
+</div>
+<script>
+  // Show only on mobile
+  if (window.innerWidth < 750) {
+    document.querySelector('.sticky-mobile-cta').style.display = 'block';
+  }
+</script>

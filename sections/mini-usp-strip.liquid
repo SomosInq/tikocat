@@ -1,0 +1,20 @@
+{% comment %}
+Mini USP Strip - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="mini-usp-strip section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="mini-usp-strip__container">
+    <ul class="mini-usp-strip__list">
+      <li>Free UK Shipping</li>
+      <li>Easy 30-Day Returns</li>
+      <li>Ethically Sourced</li>
+    </ul>
+  </div>
+</section>
+{% schema %}{
+  "name": "Mini USP Strip",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Mini USP Strip" } ]
+}{% endschema %}

@@ -1,0 +1,19 @@
+{% comment %}
+Testimonials - Fashion Store
+{% endcomment %}
+{% render 'theme-animations-config' %}
+<section class="testimonials section spacing-style color-{{ section.settings.color_scheme }}">
+  <div class="testimonials__container">
+    <h3>What our customers say</h3>
+    <blockquote>“Absolutely love my new dress! The fit is perfect and the quality is amazing.”<br><cite>– Emily R.</cite></blockquote>
+    <blockquote>“Fast delivery and beautiful packaging. Will shop again!”<br><cite>– Alex T.</cite></blockquote>
+    <blockquote>“Finally a brand that gets inclusive sizing right.”<br><cite>– Samira K.</cite></blockquote>
+  </div>
+</section>
+{% schema %}{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [ { "name": "Testimonials" } ]
+}{% endschema %}

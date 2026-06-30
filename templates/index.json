@@ -329,7 +329,7 @@
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 12,
                 "width": "custom",
-                "custom_width": 40,
+                "custom_width": 45,
                 "width_mobile": "custom",
                 "custom_width_mobile": 85,
                 "height": "fit",
@@ -359,7 +359,7 @@
                 "text_X9dUbJ": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Cats Are Picky. This One They Love.</p>",
+                    "text": "<p>Cats Are Picky.<br/>This One They Love.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",

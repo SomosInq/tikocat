@@ -817,12 +817,38 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-1",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
+            "text_BqVyjf": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>SHOP BY PET</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_Y6bbDR": {
               "type": "text",
               "settings": {
@@ -864,6 +890,7 @@
             }
           },
           "block_order": [
+            "text_BqVyjf",
             "text_Y6bbDR",
             "button_BdKCFR"
           ]
@@ -902,12 +929,38 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "hero-apparel-2",
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
+            "text_gM7LcP": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>SHOP BY PET</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_tm8hwD": {
               "type": "text",
               "settings": {
@@ -949,6 +1002,7 @@
             }
           },
           "block_order": [
+            "text_gM7LcP",
             "text_tm8hwD",
             "button_THWtDN"
           ]

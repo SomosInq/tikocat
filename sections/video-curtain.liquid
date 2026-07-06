@@ -1,0 +1,417 @@
+
+{% liquid
+  assign placeholder_image = section.settings.placeholder_image
+  assign desktop_video = section.settings.desktop_video
+  assign mobile_video = section.settings.mobile_video
+
+  if placeholder_image
+    assign poster_url = placeholder_image | image_url: width: 1920
+  elsif desktop_video and desktop_video.preview_image
+    assign poster_url = desktop_video.preview_image | image_url: width: 1920
+  endif
+
+  assign desktop_aspect = desktop_video.aspect_ratio | default: 1.778
+  assign mobile_aspect = mobile_video.aspect_ratio | default: desktop_aspect
+%}
+
+<div
+  class="video-curtain"
+  data-section-type="video-curtain"
+  data-animate="{{ section.settings.enable_animation }}"
+  style="--vc-padding-top: {{ section.settings.padding_top }}px; --vc-padding-bottom: {{ section.settings.padding_bottom }}px; --vc-aspect-mobile: {{ mobile_aspect }}; --vc-aspect-desktop: {{ desktop_aspect }}; --vc-bg: {{ section.settings.background_color }};"
+>
+  <div class="video-curtain__aspect">
+    <div class="video-curtain__frame">
+      <div class="video-curtain__media">
+
+      {% if placeholder_image %}
+        <img
+          class="video-curtain__placeholder"
+          src="{{ placeholder_image | image_url: width: 1920 }}"
+          srcset="
+            {{ placeholder_image | image_url: width: 750 }} 750w,
+            {{ placeholder_image | image_url: width: 1280 }} 1280w,
+            {{ placeholder_image | image_url: width: 1920 }} 1920w,
+            {{ placeholder_image | image_url: width: 2560 }} 2560w
+          "
+          sizes="100vw"
+          alt=""
+          width="{{ placeholder_image.width }}"
+          height="{{ placeholder_image.height }}"
+          loading="eager"
+        >
+      {% endif %}
+
+      {% if desktop_video %}
+        <video
+          class="video-curtain__video"
+          data-video="desktop"
+          muted
+          playsinline
+          {% if section.settings.loop_video %}loop{% endif %}
+          preload="none"
+          {% if poster_url %}poster="{{ poster_url }}"{% endif %}
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          {% for source in desktop_video.sources %}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {% endfor %}
+        </video>
+      {% endif %}
+
+      {% if mobile_video %}
+        <video
+          class="video-curtain__video"
+          data-video="mobile"
+          muted
+          playsinline
+          {% if section.settings.loop_video %}loop{% endif %}
+          preload="none"
+          {% if poster_url %}poster="{{ poster_url }}"{% endif %}
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          {% for source in mobile_video.sources %}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {% endfor %}
+        </video>
+      {% endif %}
+
+      {% unless desktop_video or mobile_video %}
+        <p class="video-curtain__empty">Select a desktop and/or mobile video in the section settings.</p>
+      {% endunless %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  [data-section-type="video-curtain"] {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: var(--vc-padding-top, 0px);
+    padding-bottom: var(--vc-padding-bottom, 0px);
+    background-color: var(--vc-bg, #000);
+  }
+
+  .video-curtain__aspect {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: var(--vc-aspect-mobile, 1.778);
+  }
+
+  @media screen and (min-width: 750px) {
+    .video-curtain__aspect {
+      aspect-ratio: var(--vc-aspect-desktop, 1.778);
+    }
+  }
+
+  .video-curtain__frame {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .video-curtain__media {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  .video-curtain__placeholder,
+  .video-curtain__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-curtain__video {
+    display: none;
+  }
+
+  .video-curtain__video.is-active {
+    display: block;
+  }
+
+  .video-curtain__placeholder {
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .video-curtain__placeholder.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .video-curtain__empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+  }
+{% endstyle %}
+
+<script>
+  (function () {
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var existing = document.querySelector('script[src="' + src + '"]');
+        if (existing) {
+          if (existing.getAttribute('data-loaded') === 'true') {
+            resolve();
+          } else {
+            existing.addEventListener('load', resolve);
+            existing.addEventListener('error', reject);
+          }
+          return;
+        }
+        var script = document.createElement('script');
+        script.src = src;
+        script.onload = function () {
+          script.setAttribute('data-loaded', 'true');
+          resolve();
+        };
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    function ensureGsap() {
+      // Skip loading if the theme already has GSAP + ScrollTrigger available.
+      if (window.gsap && window.ScrollTrigger) return Promise.resolve();
+      return loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js')
+        .then(function () {
+          return loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js');
+        });
+    }
+
+    function initSection(section) {
+      if (!section || section.dataset.curtainReady === 'true') return;
+      section.dataset.curtainReady = 'true';
+
+      var frame = section.querySelector('.video-curtain__frame');
+      var media = section.querySelector('.video-curtain__media');
+      var placeholder = section.querySelector('.video-curtain__placeholder');
+      var desktopVideo = section.querySelector('[data-video="desktop"]');
+      var mobileVideo = section.querySelector('[data-video="mobile"]');
+      if (!frame || !media) return;
+
+      var mql = window.matchMedia('(max-width: 749px)');
+      var activeVideo = null;
+      var isInView = false;
+
+      function hidePlaceholder() {
+        if (placeholder) placeholder.classList.add('is-hidden');
+      }
+
+      function tryPlay(video) {
+        if (!video || !isInView) return;
+        var playPromise = video.play();
+        if (playPromise && playPromise.catch) playPromise.catch(function () {});
+      }
+
+      // Pick desktop vs mobile video based on viewport width, and swap again
+      // if the user resizes across the breakpoint (e.g. rotates their phone).
+      function pickVideo() {
+        var wantsMobile = mql.matches && mobileVideo;
+        var next = wantsMobile ? mobileVideo : (desktopVideo || mobileVideo);
+        if (!next || next === activeVideo) return;
+
+        if (activeVideo) {
+          activeVideo.pause();
+          activeVideo.classList.remove('is-active');
+        }
+
+        activeVideo = next;
+        activeVideo.classList.add('is-active');
+
+        if (!activeVideo.dataset.loaded) {
+          activeVideo.dataset.loaded = 'true';
+          activeVideo.setAttribute('preload', 'auto');
+          activeVideo.load();
+        }
+
+        tryPlay(activeVideo);
+      }
+
+      [desktopVideo, mobileVideo].forEach(function (video) {
+        if (video) video.addEventListener('loadeddata', hidePlaceholder);
+      });
+      // Safety net in case the loadeddata event never fires for some reason.
+      window.setTimeout(hidePlaceholder, 4000);
+
+      // Only play the video while it's actually on screen.
+      if (window.IntersectionObserver) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              isInView = entry.isIntersecting;
+              if (isInView) {
+                tryPlay(activeVideo);
+              } else if (activeVideo) {
+                activeVideo.pause();
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        io.observe(section);
+      } else {
+        isInView = true;
+      }
+
+      pickVideo();
+      if (mql.addEventListener) {
+        mql.addEventListener('change', pickVideo);
+      } else if (mql.addListener) {
+        mql.addListener(pickVideo);
+      }
+
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion || section.dataset.animate === 'false') return;
+
+      ensureGsap().then(function () {
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        var tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            once: true,
+            invalidateOnRefresh: true
+          }
+        });
+
+        tl.fromTo(
+          frame,
+          { width: '25%', borderRadius: '16px' },
+          { width: '100%', borderRadius: '0px', duration: 1.2, ease: 'power2.out' },
+          0
+        );
+
+        section._curtainScrollTrigger = tl.scrollTrigger;
+      });
+    }
+
+    function initAll(root) {
+      var scope = root && root.querySelectorAll ? root : document;
+      scope.querySelectorAll('[data-section-type="video-curtain"]').forEach(initSection);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initAll();
+    });
+
+    // Re-init when the section is added/re-rendered in the theme editor.
+    document.addEventListener('shopify:section:load', function (event) {
+      initAll(event.target);
+    });
+
+    // Clean up the ScrollTrigger when the section is removed in the editor,
+    // so refreshing settings doesn't stack up duplicate triggers.
+    document.addEventListener('shopify:section:unload', function (event) {
+      var section = event.target.querySelector
+        ? event.target.querySelector('[data-section-type="video-curtain"]')
+        : null;
+      if (section && section._curtainScrollTrigger) {
+        section._curtainScrollTrigger.kill();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Video Curtain",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "desktop_video",
+      "label": "Desktop video"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile video",
+      "info": "Optional. Falls back to the desktop video if empty."
+    },
+    {
+      "type": "image_picker",
+      "id": "placeholder_image",
+      "label": "Placeholder image",
+      "info": "Shown while the video loads."
+    },
+    {
+      "type": "checkbox",
+      "id": "loop_video",
+      "label": "Loop video",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animation",
+      "label": "Enable curtain animation",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Curtain"
+    }
+  ]
+}
+{% endschema %}

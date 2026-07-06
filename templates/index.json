@@ -1041,6 +1041,19 @@
         "padding-block-end": 36
       }
     },
+    "video_curtain_rkzicW": {
+      "type": "video-curtain",
+      "name": "Video Curtain",
+      "settings": {
+        "desktop_video": "shopify://files/videos/Scene-1 (2).mp4",
+        "loop_video": true,
+        "padding_top": 44,
+        "padding_bottom": 36,
+        "background_color": "#f2f2ff",
+        "enable_animation": true,
+        "start_scale": 0.3
+      }
+    },
     "section_FnqB69": {
       "type": "section",
       "blocks": {
@@ -1356,6 +1369,7 @@
     "collection_list_HaCjrG",
     "section_QctxV6",
     "section_Lee4zh",
+    "video_curtain_rkzicW",
     "section_FnqB69",
     "section_ykrHTM"
   ]

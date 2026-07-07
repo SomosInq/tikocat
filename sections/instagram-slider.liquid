@@ -1,0 +1,241 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section section--page-width spacing-style color-{{ section.settings.color_scheme }}" style="{% render 'spacing-padding', settings: section.settings %}">
+  <div class="usp-section-heading">
+    <div class="heading-right">
+    <h3 class="h4" style="--color: var(--color-foreground-heading);">{{ section.settings.heading }}</h3>
+      <a href="{{ section.settings.ig_link }}" class="ig-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M14.7008 3.31583C14.4734 3.31583 14.251 3.38328 14.0619 3.50964C13.8728 3.63601 13.7254 3.81561 13.6384 4.02575C13.5513 4.23588 13.5286 4.46711 13.5729 4.69019C13.6173 4.91327 13.7268 5.11818 13.8877 5.27901C14.0485 5.43984 14.2534 5.54936 14.4765 5.59374C14.6996 5.63811 14.9308 5.61534 15.1409 5.52829C15.3511 5.44125 15.5307 5.29386 15.657 5.10474C15.7834 4.91562 15.8508 4.69328 15.8508 4.46583C15.8508 4.16083 15.7297 3.86833 15.514 3.65266C15.2983 3.43699 15.0058 3.31583 14.7008 3.31583ZM19.1092 5.635C19.0905 4.83987 18.9416 4.05318 18.6683 3.30625C18.4247 2.66717 18.0454 2.08848 17.5567 1.61C17.0821 1.11878 16.5021 0.741919 15.8604 0.507917C15.1155 0.226321 14.3279 0.0739929 13.5317 0.0574999C12.5158 -5.3551e-08 12.19 0 9.58333 0C6.97667 0 6.65083 -5.3551e-08 5.635 0.0574999C4.83877 0.0739929 4.0512 0.226321 3.30625 0.507917C2.66577 0.744288 2.08623 1.12083 1.61 1.61C1.11878 2.08455 0.741919 2.66459 0.507917 3.30625C0.226321 4.0512 0.0739929 4.83877 0.0574999 5.635C-5.3551e-08 6.65083 0 6.97667 0 9.58333C0 12.19 -5.3551e-08 12.5158 0.0574999 13.5317C0.0739929 14.3279 0.226321 15.1155 0.507917 15.8604C0.741919 16.5021 1.11878 17.0821 1.61 17.5567C2.08623 18.0458 2.66577 18.4224 3.30625 18.6587C4.0512 18.9403 4.83877 19.0927 5.635 19.1092C6.65083 19.1667 6.97667 19.1667 9.58333 19.1667C12.19 19.1667 12.5158 19.1667 13.5317 19.1092C14.3279 19.0927 15.1155 18.9403 15.8604 18.6587C16.5021 18.4247 17.0821 18.0479 17.5567 17.5567C18.0476 17.08 18.4272 16.5008 18.6683 15.8604C18.9416 15.1135 19.0905 14.3268 19.1092 13.5317C19.1092 12.5158 19.1667 12.19 19.1667 9.58333C19.1667 6.97667 19.1667 6.65083 19.1092 5.635ZM17.3842 13.4167C17.3772 14.025 17.267 14.6277 17.0583 15.1992C16.9053 15.6162 16.6595 15.9931 16.3396 16.3013C16.0287 16.618 15.6527 16.8632 15.2375 17.02C14.666 17.2287 14.0633 17.3389 13.455 17.3458C12.4967 17.3937 12.1421 17.4033 9.62167 17.4033C7.10125 17.4033 6.74667 17.4033 5.78833 17.3458C5.15669 17.3577 4.52774 17.2604 3.92917 17.0583C3.53221 16.8936 3.17338 16.6489 2.875 16.3396C2.55692 16.0317 2.31422 15.6546 2.16583 15.2375C1.93186 14.6579 1.80209 14.0414 1.7825 13.4167C1.7825 12.4583 1.725 12.1038 1.725 9.58333C1.725 7.06292 1.725 6.70833 1.7825 5.75C1.7868 5.12809 1.90033 4.51178 2.11792 3.92917C2.28663 3.52466 2.54559 3.16409 2.875 2.875C3.16615 2.54549 3.52598 2.2838 3.92917 2.10833C4.51332 1.89754 5.129 1.78737 5.75 1.7825C6.70833 1.7825 7.06292 1.725 9.58333 1.725C12.1038 1.725 12.4583 1.725 13.4167 1.7825C14.025 1.78948 14.6277 1.89965 15.1992 2.10833C15.6347 2.26996 16.0255 2.53273 16.3396 2.875C16.6536 3.16938 16.899 3.52929 17.0583 3.92917C17.2713 4.51273 17.3816 5.12879 17.3842 5.75C17.4321 6.70833 17.4417 7.06292 17.4417 9.58333C17.4417 12.1038 17.4321 12.4583 17.3842 13.4167ZM9.58333 4.66708C8.6114 4.66898 7.66184 4.95892 6.85463 5.50028C6.04742 6.04163 5.41878 6.8101 5.04815 7.7086C4.67752 8.60709 4.58153 9.59528 4.7723 10.5483C4.96308 11.5013 5.43206 12.3764 6.11999 13.063C6.80792 13.7496 7.68393 14.2169 8.63732 14.4058C9.59072 14.5947 10.5787 14.4968 11.4765 14.1244C12.3743 13.7521 13.1415 13.1219 13.6813 12.3137C14.2211 11.5054 14.5092 10.5553 14.5092 9.58333C14.5104 8.93656 14.3838 8.29591 14.1366 7.69825C13.8894 7.10058 13.5265 6.55769 13.0687 6.1008C12.6109 5.6439 12.0673 5.28202 11.4691 5.03597C10.871 4.78992 10.2301 4.66456 9.58333 4.66708ZM9.58333 12.7746C8.95216 12.7746 8.33517 12.5874 7.81037 12.2368C7.28557 11.8861 6.87654 11.3877 6.635 10.8046C6.39346 10.2214 6.33027 9.57979 6.4534 8.96075C6.57654 8.34171 6.88047 7.77308 7.32678 7.32678C7.77308 6.88047 8.34171 6.57654 8.96075 6.4534C9.57979 6.33027 10.2214 6.39346 10.8046 6.635C11.3877 6.87654 11.8861 7.28557 12.2368 7.81037C12.5874 8.33517 12.7746 8.95216 12.7746 9.58333C12.7746 10.0024 12.692 10.4174 12.5317 10.8046C12.3713 11.1918 12.1362 11.5436 11.8399 11.8399C11.5436 12.1362 11.1918 12.3713 10.8046 12.5317C10.4174 12.692 10.0024 12.7746 9.58333 12.7746Z" fill="#1A1A1A" fill-opacity="0.8"/>
+        </svg>
+        <span>{{ section.settings.button_label }}</span>
+      </a>
+    </div>
+    <div class="usp-slide-nav">
+      <div class="ig-slide-prev usp-slide-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" viewBox="0 0 7 13" fill="none">
+          <path d="M6.1875 0.6875L0.6875 6.1875L6.1875 11.6875" stroke="#10069F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="ig-slide-next usp-slide-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="13" viewBox="0 0 7 13" fill="none">
+          <path d="M0.6875 0.6875L6.1875 6.1875L0.6875 11.6875" stroke="#10069F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <instagram-slider class="swiper usp-slider">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide" {{ block.shopify_attributes }}>
+          <div class="usp-slide-box">
+            <div class="ig-image">
+              <picture>
+                {% if block.settings.mobile_image %}
+                  <source 
+                    media="(max-width: 767px)" 
+                    srcset="{{ block.settings.mobile_image | image_url  }}"
+                  >
+                {% endif %}
+                
+                {% if block.settings.image %}
+                  <img 
+                    src="{{ block.settings.image | image_url }}" 
+                    width="100%"
+                    height="auto"
+                  >
+                {% endif %}
+              </picture>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </instagram-slider>
+  <div class="ig-slider-progress"></div>
+</div>
+<script
+  src="{{ 'instagram-slider.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<style>
+#shopify-section-{{ section.id }}{
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }}  .usp-slider{
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+#shopify-section-{{ section.id }}  .usp-section-heading{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.usp-section-heading h2{
+  margin-bottom: 0;
+}
+#shopify-section-{{ section.id }}  .usp-slide-nav {
+  display: flex;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }}  .usp-slide-nav .usp-slide-button {
+  width: 56px;
+  height: 56px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #10069F;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+#shopify-section-{{ section.id }}  .usp-slide-nav .usp-slide-button.swiper-button-disabled{
+  opacity: 0.3;
+}
+#shopify-section-{{ section.id }}  .usp-slide-box {
+  position: relative;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }}  .ig-image img{
+  object-fit: cover;
+  border-radius: 5px;
+}
+.ig-user-link{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 4px 9.8px 6px 10px;
+  border-radius: 28px;
+  background: #FFF;
+  color: #666;
+  font-family: Inter;
+  font-size: 11.703px;
+  font-weight: 500;
+}
+#shopify-section-{{ section.id }} .heading-right {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+#shopify-section-{{ section.id }} .heading-right h3{
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .ig-button{
+  display: flex;
+  padding: 12px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 85px;
+  border: 1px solid var(--text-and-icons-sencodary-text-icon, rgba(26, 26, 26, 0.80));
+  backdrop-filter: blur(1px);
+}
+#shopify-section-{{ section.id }} .ig-button span{
+  color: #1A1A1ACC;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#shopify-section-{{ section.id }} .ig-slider-progress.swiper-pagination-progressbar {
+    position: relative;
+    margin-top: 48px;
+}
+
+#shopify-section-{{ section.id }} .ig-slider-progress.swiper-pagination-progressbar span.swiper-pagination-progressbar-fill {
+    background: #1A1A1ACC;
+}
+</style>
+{% schema %}
+{
+  "name": "Instagram Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "As Free As You Are"
+    },
+     {
+      "type": "text",
+      "id": "button_label",
+      "label": "Label",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "url",
+      "id": "ig_link",
+      "label": "Instagram link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "number",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "default": 72
+    },
+    {
+      "type": "number",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "default": 72
+    },
+    {
+      "type": "number",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Slider"
+    }
+  ]
+}
+{% endschema %}

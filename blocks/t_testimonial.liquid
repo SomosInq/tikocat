@@ -1,0 +1,38 @@
+<div class="review-box">
+  <div class="review-box-heading">
+    <img src="{{ block.settings.image | image_url  }}" alt="">
+    <div class="reviewer">{{ block.settings.name }}</div>
+  </div>
+  <div class="review-box-content">
+    {{ block.settings.paragraph }}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Testimonial",
+  "class": "review-row",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Name",
+      "default": "Laura Martinez"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial"
+    }
+  ]
+}
+{% endschema %}

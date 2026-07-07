@@ -80,6 +80,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Quiet Enough to Keep Them Calm</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -91,6 +93,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground-heading)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -105,6 +109,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Love it for years, test it in real life, risk-free</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -116,6 +122,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -220,6 +228,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Where Routine Feels Natural</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -231,6 +241,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground-heading)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -245,6 +257,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Fed on Time. Every Time.</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -256,6 +270,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -360,6 +376,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Cats Are Picky. This One They Love.</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -371,6 +389,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground-heading)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -385,6 +405,8 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Finally. Pet Care That Gets It.</p>",
+                    "line_through": false,
+                    "opacity": 100,
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -396,6 +418,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
+                    "show_custom_color": false,
+                    "custom_color": "#000000",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -499,6 +523,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>Shop by category</p>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -510,6 +536,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -663,6 +691,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>Find the Right Clippers for Your Pet</p>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -674,6 +704,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -828,6 +860,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>SHOP BY PET</p>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -839,6 +873,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -853,6 +889,8 @@
               "type": "text",
               "settings": {
                 "text": "<h3>For Dogs</h3>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -864,6 +902,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground-heading)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -940,6 +980,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>SHOP BY PET</p>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -951,6 +993,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -965,6 +1009,8 @@
               "type": "text",
               "settings": {
                 "text": "<h3>For Cats</h3>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -976,6 +1022,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground-heading)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -1050,8 +1098,7 @@
         "padding_top": 44,
         "padding_bottom": 36,
         "background_color": "#f2f2ff",
-        "enable_animation": true,
-        "start_scale": 0.3
+        "enable_animation": true
       }
     },
     "section_FnqB69": {
@@ -1102,6 +1149,8 @@
               "name": "t:names.heading",
               "settings": {
                 "text": "<h2>Built for the Way Pets Fit Into Your Life</h2>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1113,6 +1162,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground-heading)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -1189,6 +1240,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>TIKOCAT creates thoughtfully designed pet care products that are safe, reliable and easy to maintain over time. We focus on building solutions that fit naturally into peoples lives so pet owners can care for their pets consistently without overthinking it.</p><p>Good pet care is not the most expensive or the most elaborate. It is the kind that works and saves time. The kind that becomes part of your life so naturally you do not have to think about it. Week after week, without<br/>the guesswork and without the guilt.</p>",
+                "line_through": false,
+                "opacity": 100,
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -1200,6 +1253,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -1249,6 +1304,192 @@
         "padding-block-end": 72
       }
     },
+    "testimonials_nYHDQ9": {
+      "type": "testimonials",
+      "blocks": {
+        "group_6FBwiH": {
+          "type": "group",
+          "name": "Header",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-2",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_ytQekJ": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Let our customers speak for us</p>",
+                "line_through": false,
+                "opacity": 100,
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_TECtxT": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p>Don't Just Take Our Word For It</p>",
+                "line_through": false,
+                "opacity": 100,
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "show_custom_color": false,
+                "custom_color": "#000000",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_ytQekJ",
+            "text_TECtxT"
+          ]
+        },
+        "reviews-list": {
+          "type": "t_testimonials",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "t_testimonial_NDLwEM": {
+              "type": "t_testimonial",
+              "name": "Testimonial",
+              "settings": {
+                "image": "shopify://shop_images/Figure.png",
+                "name": "ColdFireChief",
+                "paragraph": "<p>Very good product. It took half the time shaving the dogs than it did with a shaver at 3x the price. It's chargeable, but doesnt charge super fast (about 50-60 minutes to charge it fully, about 25-ish%). It is quieter than most shavers but seemed to get louder when a guard was attached to it. </p>"
+              },
+              "blocks": {}
+            },
+            "t_testimonial_njDKdH": {
+              "type": "t_testimonial",
+              "name": "Testimonial",
+              "settings": {
+                "image": "shopify://shop_images/Figure_1.png",
+                "name": "Carla Farias",
+                "paragraph": "<p>This product worked wonders. My girly pal is a golden doodle and had a long winter and she was in bad shape. These grooming kit was definitely much quieter than others I’ve purchased. Priced pretty well and they do not disappoint. For the price point, it’s a must buy.</p>"
+              },
+              "blocks": {}
+            },
+            "t_testimonial_AnwqJg": {
+              "type": "t_testimonial",
+              "name": "Testimonial",
+              "settings": {
+                "image": "shopify://shop_images/Figure_2.png",
+                "name": "Laura Martinez",
+                "paragraph": "<p>Very low noise level. Since it’s cordless, it’s easy to use. Cuts my schnauzer’s hair to the exact length I want. Blades are sharp and produces a smooth and even finish.</p>"
+              },
+              "blocks": {}
+            },
+            "t_testimonial_3rGJDr": {
+              "type": "t_testimonial",
+              "name": "Testimonial",
+              "settings": {
+                "image": "shopify://shop_images/Figure_3.png",
+                "name": "Jessica Brown",
+                "paragraph": "<p>I cannot say enough good things about these clippers, they are AMAZING! The battery life is impressive, the blades stay sharp, the cuts are clean, and they don’t get hot even during longer grooming sessions. The low noise level is a huge win for our nervous dogs; they tolerate these so much better than louder clippers we’ve tried.</p>"
+              },
+              "blocks": {}
+            },
+            "t_testimonial_3LXJwa": {
+              "type": "t_testimonial",
+              "name": "Testimonial",
+              "settings": {
+                "image": "shopify://shop_images/Figure_4.png",
+                "name": "Rachel Wilson",
+                "paragraph": "<p>\"This is a must have for any parent. It looks nice, super<br/>functional, sleek, literally anything you would want in a<br/>stroller. Currently purchasing my second one.\"</p>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "t_testimonial_NDLwEM",
+            "t_testimonial_njDKdH",
+            "t_testimonial_AnwqJg",
+            "t_testimonial_3rGJDr",
+            "t_testimonial_3LXJwa"
+          ]
+        }
+      },
+      "block_order": [
+        "group_6FBwiH"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "background_image": "shopify://shop_images/review-bg.png",
+        "section_width": "page-width",
+        "color_scheme": "scheme-e123afab-373b-4606-b138-abe3be675594",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
     "section_ykrHTM": {
       "type": "section",
       "blocks": {
@@ -1257,6 +1498,8 @@
           "name": "t:names.heading",
           "settings": {
             "text": "<h2>Subscribe to our emails</h2>",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -1268,6 +1511,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "var(--color-foreground)",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1282,6 +1527,8 @@
           "type": "text",
           "settings": {
             "text": "<p>Be the first to know about new collections and special offers. </p>",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -1293,6 +1540,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "var(--color-foreground)",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1371,6 +1620,7 @@
     "section_Lee4zh",
     "video_curtain_rkzicW",
     "section_FnqB69",
+    "testimonials_nYHDQ9",
     "section_ykrHTM"
   ]
 }

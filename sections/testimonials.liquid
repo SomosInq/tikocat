@@ -1,8 +1,128 @@
+<div class="testimonials-section" style="background-image: url({{ section.settings.background_image | image_url  }});">
+  <div
+    class="section section--{{ section.settings.section_width }} spacing-style {% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }}{% endif %}"
+    style="{% render 'spacing-padding', settings: section.settings %}"
+  >
+    <div>
+      <div class="testimonial-heading-area">
+        {%- content_for 'blocks' -%}
+      </div>
+      <div class="testimonials-area">
+        {% content_for 'block', type: 't_testimonials', id: 'reviews-list' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% style %}
+  .testimonials-section{
+    aspect-ratio: {{ section.settings.background_image.width }}/{{ section.settings.background_image.height }};
+    background-size: cover;
+    overflow: auto;
+    overflow-y: scroll; /* or auto */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none; 
+  }
+  .testimonials-section::-webkit-scrollbar {
+    display: none;               /* Chrome, Safari, newer Edge */
+  }
+  .testimonial-heading-area {
+    position: sticky;
+    top: 48px;
+    z-index: 1;
+  }
+  .testimonials-area {
+    max-width: 880px;
+    margin: 184px auto;
+    position: relative;
+    z-index: 2;
+  }
+  .review-box {
+    background: rgba(250, 249, 245, 0.50);
+    border-radius: 20px;
+    padding: 24px 32px;
+    max-width: 480px;
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff73;
+  }
+  .review-box-heading {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .review-box-heading img {
+    max-width: 80px;
+  }
+  .reviewer {
+    color: #171717;
+    font-size: 24px;
+  }
+  .review-row:nth-child(odd) {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -100px;
+    padding-right: 95px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .review-row:nth-child(even) {
+    margin-bottom: 30px;
+  }
+{% endstyle %}
 {% schema %}
 {
   "name": "Testimonials",
+  "max_blocks": 1,
+  "blocks": [
+    {
+      "type": "group"
+    }
+  ],
   "settings": [
-    
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "number",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "default": 48
+    },
+    {
+      "type": "number",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "default": 48
+    }
   ],
   "presets": [
     {

@@ -470,9 +470,21 @@
         "autoplay": false,
         "autoplay_speed": 4,
         "section_width": "full-width",
-        "slide_height": "medium",
+        "slide_height": "large",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "rounded_corner_rLm8eV": {
+      "type": "rounded-corner",
+      "name": "Rounded Corner",
+      "settings": {
+        "corner_position": "top",
+        "height": 52,
+        "front_color": "#ffffff",
+        "back_color": "",
+        "border_radius": 22,
+        "float": true
       }
     },
     "collection_list_HaCjrG": {
@@ -1496,49 +1508,37 @@
         "column_KeNxxH": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/bbbingss_-_noo.ma.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/bbbingss_-_noo.ma.png"
           }
         },
         "column_zCNp9d": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/bbbingss_-_noo.ma_1.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/bbbingss_-_noo.ma_1.png"
           }
         },
         "column_4ptMtK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/bbbingss_-_noo.ma_2.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/bbbingss_-_noo.ma_2.png"
           }
         },
         "column_JmXbjL": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/bbbingss_-_noo.ma_3.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/bbbingss_-_noo.ma_3.png"
           }
         },
         "column_Xp6tgU": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/bbbingss_-_noo.ma_4.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/bbbingss_-_noo.ma_4.png"
           }
         },
         "column_gkibjg": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Container_5.png",
-            "title": "@raw.home.interior",
-            "ig_link": ""
+            "image": "shopify://shop_images/Container_5.png"
           }
         }
       },
@@ -2295,10 +2295,23 @@
         "padding-block-start": 60,
         "padding-block-end": 40
       }
+    },
+    "rounded_corner_aDdXJA": {
+      "type": "rounded-corner",
+      "name": "Rounded Corner",
+      "settings": {
+        "corner_position": "bottom",
+        "height": 20,
+        "front_color": "#f2f2ff",
+        "back_color": "#10069f",
+        "border_radius": 23,
+        "float": false
+      }
     }
   },
   "order": [
     "slideshow_KfehBY",
+    "rounded_corner_rLm8eV",
     "collection_list_HaCjrG",
     "section_QctxV6",
     "section_Lee4zh",
@@ -2306,6 +2319,7 @@
     "section_FnqB69",
     "testimonials_nYHDQ9",
     "instagram_slider_eqGaPT",
-    "section_x69bFH"
+    "section_x69bFH",
+    "rounded_corner_aDdXJA"
   ]
 }

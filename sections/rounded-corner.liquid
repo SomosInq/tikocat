@@ -1,0 +1,89 @@
+<div class="inner-container"><span class="hidden" hidden>hidden</span></div>
+
+<style>
+  #shopify-section-{{ section.id }}{
+    background-color: {{ section.settings.back_color }};
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .inner-container{
+    background-color: {{ section.settings.front_color }};
+    height: {{ section.settings.height }}px;
+    width: 100%;
+    {% if section.settings.corner_position == 'top' %}
+      margin-bottom: -1px;
+      border-radius: {{ section.settings.border_radius }}px {{ section.settings.border_radius }}px 0 0 ;
+    {% else %}
+      margin-top: -1px;
+      border-radius: 0 0 {{ section.settings.border_radius }}px {{ section.settings.border_radius }}px;
+    {% endif %}
+    {% if section.settings.float %}
+      position: absolute;
+      bottom: 0;
+    {% endif %}
+  }
+</style>
+{% schema %}
+{
+  "name": "Rounded Corner",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "corner_position",
+      "label": "Corner Position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Height",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "front_color",
+      "label": "Front color"
+    },
+    {
+      "type": "color",
+      "id": "back_color",
+      "label": "Back color"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Border Radius",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "float",
+      "label": "Float?",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rounded Corner",
+      "category": "utilities"
+    }
+  ]
+}
+{% endschema %}

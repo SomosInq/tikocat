@@ -3352,7 +3352,8 @@ slideshow-component[dragging] slideshow-arrows {
 slideshow-container {
   width: 100%;
   display: block;
-  position: relative;
+  position: sticky;
+  top: 67px;
   grid-area: container;
   container-type: inline-size;
 }
@@ -3432,7 +3433,7 @@ slideshow-component:has(slideshow-controls[thumbnails]) {
 slideshow-controls[thumbnails]:is([pagination-position='right'], [pagination-position='left']) {
   display: flex;
   flex-direction: column;
-  height: 0;
+  /* height: 0; */
   min-height: 100%;
 
   .slideshow-controls__thumbnails-container {
@@ -3675,15 +3676,16 @@ slideshow-component[autoplay] slideshow-controls {
   display: inline-flex;
   padding-inline: var(--slideshow-thumbnails-padding-inline, var(--padding-sm));
   padding-block: var(--slideshow-thumbnails-padding-block, var(--padding-sm));
-  gap: var(--gap-xs);
+  gap: 20px;
   margin-inline: auto;
   height: fit-content;
 
   .slideshow-control {
     border-radius: var(--media-radius);
-    width: clamp(44px, 7vw, var(--thumbnail-width));
+    width: var(--thumbnail-width);          /* Use the setting directly */
+    max-width: 100%;
     height: auto;
-    aspect-ratio: var(--aspect-ratio);
+    aspect-ratio: 1/1;
 
     img {
       height: 100%;
@@ -3692,9 +3694,9 @@ slideshow-component[autoplay] slideshow-controls {
     }
 
     &:is([aria-selected='true']) {
-      outline: var(--focus-outline-width) solid currentcolor;
+      /* outline: var(--focus-outline-width) solid currentcolor;
       outline-offset: calc(var(--focus-outline-offset) / 2);
-      border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity));
+      border: var(--style-border-width) solid rgb(var(--color-border-rgb) / var(--media-border-opacity)); */
     }
   }
 }

@@ -1,0 +1,15 @@
+{% for collection in product.collections %}
+  <a href="{{ collection.url }}">{{ collection.title }}</a>
+  {% break %}
+{% endfor %}
+{% schema %}
+{
+  "name": "Product Collection",
+  "settings": [
+    
+  ],
+  "presets": [{
+    "name": "Product Collection"
+  }]
+}
+{% endschema %}

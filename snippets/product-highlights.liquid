@@ -1,0 +1,60 @@
+{% if product.metafields.custom.product_highlights != blank %}
+{% assign product_highlights = product.metafields.custom.product_highlights %}
+<div class="product-highlights">
+  <div class="highlight-title">Product highlights</div>
+  <div class="product-highlights-list">
+    {% for product_highlight in product_highlights.value %}
+      <div class="product-highlight-box">
+        <img src="{{ product_highlight.icon |  image_url  }}" alt="" width="24" height="24" class="product-highlight-icon">
+        <span class="product-highlight-label">{{ product_highlight.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% style %}
+  .product-highlights {
+    border: 1px solid #D3FF33;
+    padding: 32px;
+    margin: 40px 0;
+    position: relative;
+  }
+  .highlight-title {
+    color: #171717;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #fff;
+    display: inline-block;
+    padding: 10px;
+    position: absolute;
+    top: -29px;
+    left: 24px;
+  }
+  .product-highlights-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .product-highlight-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #10069F;
+    border-radius: 10px;
+    padding: 16px 24px;
+  }
+  .product-highlight-icon{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  .product-highlight-label{
+    color: #D3FF33;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+  }
+{% endstyle %}
+{% endif %}

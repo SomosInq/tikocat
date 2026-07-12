@@ -1,0 +1,501 @@
+<!--
+  ============================================================
+  SECTION: Before & After Image Slider
+  ============================================================
+  A draggable before/after comparison tool with full-width
+  images, a central handle, and optional labels.
+  ============================================================
+-->
+
+<style>
+    /* ----- Reset & Base ----- */
+    .before-after-section {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-body-family, Arial, sans-serif);
+    }
+
+    .before-after-section .ba-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+        background: #f4f4f4;
+    }
+
+    /* ----- Images ----- */
+    .ba-container .ba-after,
+    .ba-container .ba-before-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .ba-container .ba-after img,
+    .ba-container .ba-before-wrapper img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        -webkit-user-drag: none;
+        user-drag: none;
+        object-fit: cover;
+        object-position: left;
+    }
+
+    /* The "before" image sits inside a wrapper with overflow:hidden.
+         The wrapper's width is controlled by JS dragging. */
+    .ba-container .ba-before-wrapper {
+        z-index: 2;
+        overflow: hidden;
+        /* width is set via JS, defaults to 50% */;
+    }
+
+    .ba-container .ba-after {
+        z-index: 1;
+    }
+
+    /* ----- Drag Handle ----- */
+    .ba-container .ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        width: 4px;
+        background: #fff;
+        cursor: ew-resize;
+        /* left is set via JS, defaults to 50% */
+        transform: translateX(-50%);
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+        transition: box-shadow 0.2s ease;
+        touch-action: none;
+    }
+
+    .ba-container .ba-handle:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Handle circle / grip */
+    .ba-container .ba-handle .ba-grip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ba-container .ba-handle:hover .ba-grip {
+        transform: translate(-50%, -50%) scale(1.06);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30);
+    }
+
+    /* Arrows inside the grip */
+    .ba-container .ba-handle .ba-grip svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: #333;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .ba-container .ba-handle .ba-grip svg path {
+        stroke: #333;
+    }
+
+    /* ----- Labels (Before / After) ----- */
+    .ba-container .ba-label {
+      position: absolute;
+      bottom: 30px;
+      z-index: 5;
+      font-family: Oswald;
+      font-size: 32px;
+      color: #10069F;
+    }
+
+    .ba-container .ba-label--before {
+        left: 24px;
+    }
+
+    .ba-container .ba-label--after {
+        right: 24px;
+    }
+
+    /* ----- Mobile tweaks ----- */
+    @media (max-width: 640px) {
+        .ba-container .ba-handle .ba-grip {
+            width: 36px;
+            height: 36px;
+        }
+        .ba-container .ba-handle .ba-grip svg {
+            width: 16px;
+            height: 16px;
+        }
+        .ba-container .ba-label {
+            font-size: 11px;
+            padding: 4px 12px;
+            top: 16px;
+        }
+        .ba-container .ba-label--before {
+            left: 14px;
+        }
+        .ba-container .ba-label--after {
+            right: 14px;
+        }
+    }
+
+    /* ----- Loading / placeholder state ----- */
+    .ba-container .ba-loading {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e8e8e8;
+        color: #999;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .ba-container .ba-loading svg {
+        width: 32px;
+        height: 32px;
+        animation: ba-spin 0.9s linear infinite;
+    }
+
+    @keyframes ba-spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* ----- Fade-in on load ----- */
+    .ba-container.ba-loaded .ba-after img,
+    .ba-container.ba-loaded .ba-before-wrapper img {
+        animation: ba-fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes ba-fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<!-- ============================================================
+HTML STRUCTURE
+============================================================ -->
+<div class="before-after-section" data-section-id="{{ block.id }}" data-section-type="before-after">
+    <div class="ba-container" id="baContainer-{{ block.id }}">
+
+        <!-- Loading spinner (hidden once images load) -->
+        <div class="ba-loading" id="baLoading-{{ block.id }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="30" />
+            </svg>
+        </div>
+
+        <!-- AFTER image (bottom layer) -->
+        <div class="ba-after">
+            {% if block.settings.after_image != blank %}
+            <img
+            src="{{ block.settings.after_image | img_url: 'master' }}"
+            alt="{{ block.settings.after_image.alt | default: 'After' }}"
+            loading="lazy"
+            >
+            {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+        </div>
+
+        <!-- BEFORE image wrapper (top layer, width controlled by JS) -->
+        <div class="ba-before-wrapper" id="baBeforeWrapper-{{ block.id }}" style="width: 50%;">
+            {% if block.settings.before_image != blank %}
+            <img
+            src="{{ block.settings.before_image | img_url: 'master' }}"
+            alt="{{ block.settings.before_image.alt | default: 'Before' }}"
+            loading="lazy"
+            >
+            {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+        </div>
+
+        <!-- Drag Handle -->
+        <div class="ba-handle" id="baHandle-{{ block.id }}" style="left: 50%;">
+            <div class="ba-grip">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 5v14M16 5v14" />
+                    <path d="M6 9l-2 3 2 3M18 9l2 3-2 3" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Labels -->
+        {% if block.settings.show_labels %}
+        <div class="ba-label ba-label--before">{{ block.settings.label_before | default: 'Before' }}</div>
+        <div class="ba-label ba-label--after">{{ block.settings.label_after | default: 'After' }}</div>
+        {% endif %}
+
+    </div>
+</div>
+
+<!-- ============================================================
+JAVASCRIPT – Dragging Logic
+============================================================ -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sectionId = '{{ block.id }}';
+        const container = document.getElementById('baContainer-' + sectionId);
+        if (!container) return;
+
+        const beforeWrapper = document.getElementById('baBeforeWrapper-' + sectionId);
+        const handle = document.getElementById('baHandle-' + sectionId);
+        const loadingEl = document.getElementById('baLoading-' + sectionId);
+
+        // ----- Remove loading overlay once images are ready -----
+        const images = container.querySelectorAll('img');
+        let loadedCount = 0;
+        const totalImages = images.length;
+
+        function onImageLoaded() {
+            loadedCount++;
+            if (loadedCount >= totalImages) {
+                if (loadingEl) loadingEl.style.display = 'none';
+                container.classList.add('ba-loaded');
+            }
+        }
+
+        images.forEach((img) => {
+            if (img.complete && img.naturalWidth > 0) {
+                onImageLoaded();
+            } else {
+                img.addEventListener('load', onImageLoaded);
+                img.addEventListener('error', onImageLoaded); // fallback
+            }
+        });
+
+        // If no images, hide loading immediately
+        if (totalImages === 0) {
+            if (loadingEl) loadingEl.style.display = 'none';
+            container.classList.add('ba-loaded');
+        }
+
+        // ----- Drag state -----
+        let isDragging = false;
+        let startX = 0;
+        let currentPercent = 50; // 0-100
+
+        // ----- Update position -----
+        function updatePosition(clientX) {
+            const rect = container.getBoundingClientRect();
+            const containerWidth = rect.width;
+            if (containerWidth === 0) return;
+
+            // Clamp percent between 2% and 98% so handle never goes off-screen
+            let percent = ((clientX - rect.left) / containerWidth) * 100;
+            percent = Math.min(Math.max(percent, 2), 98);
+
+            currentPercent = percent;
+
+            // Update before wrapper width
+            beforeWrapper.style.width = percent + '%';
+
+            // Update handle position
+            handle.style.left = percent + '%';
+        }
+
+        // ----- Drag event handlers -----
+        function onStart(e) {
+            e.preventDefault();
+            isDragging = true;
+            const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            startX = clientX;
+            container.style.cursor = 'ew-resize';
+            document.body.style.cursor = 'ew-resize';
+            document.body.style.userSelect = 'none';
+            // Disable transitions during drag for smoothness
+            beforeWrapper.style.transition = 'none';
+            handle.style.transition = 'none';
+        }
+
+        function onMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            updatePosition(clientX);
+        }
+
+        function onEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            container.style.cursor = '';
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+            // Re-enable transitions for a subtle snap
+            beforeWrapper.style.transition = '';
+            handle.style.transition = '';
+            // Snap to nearest 0.5% for clean look
+            const snapped = Math.round(currentPercent * 2) / 2;
+            if (Math.abs(snapped - currentPercent) > 0.1) {
+                currentPercent = snapped;
+                beforeWrapper.style.width = currentPercent + '%';
+                handle.style.left = currentPercent + '%';
+            }
+        }
+
+        // ----- Mouse events -----
+        handle.addEventListener('mousedown', onStart);
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onEnd);
+
+        // ----- Touch events -----
+        handle.addEventListener('touchstart', onStart, { passive: false });
+        document.addEventListener('touchmove', onMove, { passive: false });
+        document.addEventListener('touchend', onEnd, { passive: false });
+
+        // ----- Resize: keep handle in correct position -----
+        function onResize() {
+            // Re-apply current percent to ensure correct positioning
+            beforeWrapper.style.width = currentPercent + '%';
+            handle.style.left = currentPercent + '%';
+        }
+
+        window.addEventListener('resize', onResize);
+
+        // ----- Keyboard accessibility (optional) -----
+        handle.setAttribute('role', 'slider');
+        handle.setAttribute('aria-valuenow', '50');
+        handle.setAttribute('aria-valuemin', '0');
+        handle.setAttribute('aria-valuemax', '100');
+        handle.setAttribute('aria-label', 'Drag to compare before and after');
+
+        // Update aria value on drag
+        const origUpdate = updatePosition;
+        updatePosition = function(clientX) {
+            origUpdate(clientX);
+            handle.setAttribute('aria-valuenow', Math.round(currentPercent));
+        };
+
+        // ----- Cleanup on section unload (Shopify) -----
+        document.addEventListener('shopify:section:unload', function(e) {
+            if (e.detail.sectionId === sectionId) {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onEnd);
+                document.removeEventListener('touchmove', onMove);
+                document.removeEventListener('touchend', onEnd);
+                window.removeEventListener('resize', onResize);
+            }
+        });
+
+        // If the section is re-rendered by Shopify, we need to re-bind
+        // but since we use unique IDs, it's fine.
+    });
+</script>
+
+<!-- ============================================================
+SHOPIFY SCHEMA
+============================================================ -->
+{% schema %}
+{
+"name": "Before & After Slider",
+"settings": [
+{
+"type": "header",
+"content": "Images"
+},
+{
+"type": "image_picker",
+"id": "before_image",
+"label": "Before image",
+"info": "Recommended: landscape orientation, at least 1200px wide."
+},
+{
+"type": "image_picker",
+"id": "after_image",
+"label": "After image",
+"info": "Recommended: same dimensions as the Before image."
+},
+{
+"type": "header",
+"content": "Labels"
+},
+{
+"type": "checkbox",
+"id": "show_labels",
+"label": "Show labels",
+"default": true
+},
+{
+"type": "text",
+"id": "label_before",
+"label": "Before label",
+"default": "Before"
+},
+{
+"type": "text",
+"id": "label_after",
+"label": "After label",
+"default": "After"
+},
+{
+"type": "header",
+"content": "Appearance"
+},
+{
+"type": "range",
+"id": "container_height",
+"label": "Image container height",
+"min": 300,
+"max": 900,
+"step": 20,
+"default": 600,
+"unit": "px"
+}
+],
+"presets": [
+{
+"name": "Before & After Slider",
+"category": "Image"
+}
+]
+}
+{% endschema %}
+
+{% comment %}
+  ============================================================
+  STYLE INJECTION for container height (must be in schema)
+  ============================================================
+{% endcomment %}
+<style>
+    #shopify-block-{{ block.id }}{
+      width: 100%;
+    }
+    #baContainer-{{ block.id }} {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: {{ block.settings.before_image.width }}/{{ block.settings.before_image.height }};
+      border-radius: 15.16px;
+    }
+</style>

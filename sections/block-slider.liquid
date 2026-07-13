@@ -1,0 +1,431 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} spacing-style {% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }}{% endif %}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <div class="block-slider-container">
+    <block-slider 
+      class="swiper block-slider" 
+      data-slides-per-view="{{ section.settings.slides_per_view }}" 
+      data-slides-per-view-mobile="{{ section.settings.slides_per_view_mobile }}" 
+      data-space-between="{{ section.settings.space_between }}" 
+      data-loop-slide="{{ section.settings.loop_slide }}" 
+      data-initial-slide="{{ section.settings.initial_slide }}" 
+      data-centered-slide="{{ section.settings.center_slide }}"
+      data-autoplay="{{ section.settings.autoplay }}"
+      data-autoplay-delay="{{ section.settings.autoplay_delay }}"
+      data-pause-on-hover="{{ section.settings.pause_on_hover }}"
+      data-show-arrows="{{ section.settings.show_arrows }}"
+      data-speed="{{ section.settings.transition_speed }}"
+      data-effect="{{ section.settings.transition_effect }}"
+    >
+      <div class="swiper-wrapper">
+        {% content_for 'blocks' %}
+      </div>
+    </block-slider>
+  </div>
+  <div class="swiper-slider-navigations">
+    {% if section.settings.show_arrows %}
+      <button class="swiper-button-prev block-slider-arrow block-slider-arrow--prev" aria-label="Previous slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="14" viewBox="0 0 28 14" fill="none">
+          <path d="M6.70249 12.7565L0.648438 6.70241L6.70249 0.648438M0.648438 6.70241H27.0268" stroke="#10069F" stroke-width="1.2973" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {% endif %}
+    {% if section.settings.show_pagination %}
+      <div class="block-slider-dots slider-pagination"></div>
+    {% endif %}
+    {% if section.settings.show_arrows %}
+      <button class="swiper-button-next block-slider-arrow block-slider-arrow--next" aria-label="Next slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="14" viewBox="0 0 28 14" fill="none">
+          <path d="M20.9728 12.7565L27.0268 6.70241L20.9728 0.648438M27.0268 6.70241H0.648438" stroke="#10069F" stroke-width="1.2973" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    overflow: hidden;
+  }
+  
+  #shopify-section-{{ section.id }} .swiper-wrapper {
+    height: auto;
+    {% if section.settings.vertical_alignment == 'center' %}
+      align-items: center;
+    {% elsif section.settings.vertical_alignment == 'bottom' %}
+      align-items: flex-end;
+    {% endif %}
+  }
+  
+  #shopify-section-{{ section.id }} .block-slider {
+    width: 100%;
+    position: relative;
+  }
+  
+  {% if section.settings.show_overflow %}
+    #shopify-section-{{ section.id }} .block-slider {
+      overflow: visible;
+    }
+  {% endif %}
+  
+  #shopify-section-{{ section.id }} .swiper-slide:not(.swiper-slide-active) {
+    opacity: {{ section.settings.opacity | divided_by: 100.0 }};
+  }
+  
+  {% if section.settings.custom_width %}
+    #shopify-section-{{ section.id }} .block-slider-container {
+      max-width: {{ section.settings.custom_width_val }}px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .block-slider-container {
+        max-width: 100%;
+      }
+    }
+  {% endif %}
+  
+  /* Arrow Styles */
+  .swiper-slider-navigations {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+  .block-slider-arrow {
+    position: relative;
+    background: transparent;
+    border: 0;
+    appearance: none;
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  .block-slider-arrow svg {
+    width: 32px;
+    height: 32px;
+    fill: transparent;
+  }
+  
+  /* Pagination Styles */
+  .block-slider-dots.slider-pagination.swiper-pagination-bullets-dynamic {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+    left: auto;
+    transform: none;
+    top: 0;
+    {% if section.settings.pagination_position == 'inside' %}
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    {% endif %}
+  }
+  .block-slider-dots.slider-pagination.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{
+    transform: scale(.65);
+    background: #10069F;
+    opacity: 1;
+  }
+  .block-slider-dots.slider-pagination.swiper-pagination-bullets-dynamic .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #fff;
+    border: 2px solid #10069F;
+    transform: scale(1);
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 749px) {
+    .block-slider-arrow {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .block-slider-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Block Slider",
+  "blocks": [
+    {
+      "type": "_swiper-slide"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_width",
+      "label": "Custom Width"
+    },
+    {
+      "type": "number",
+      "id": "custom_width_val",
+      "label": "Custom Width Value",
+      "default": 900,
+      "visible_if": "{{ section.settings.custom_width == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overflow",
+      "label": "Show overflow on slides",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "number",
+      "id": "slides_per_view",
+      "label": "Slides per view (Desktop)",
+      "default": 1,
+      "info": "Number of slides visible at once on desktop"
+    },
+    {
+      "type": "number",
+      "id": "slides_per_view_mobile",
+      "label": "Slides per view (Mobile)",
+      "default": 1,
+      "info": "Number of slides visible at once on mobile devices"
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Space between slides",
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "transition_effect",
+      "label": "Transition effect",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "cube",
+          "label": "Cube"
+        },
+        {
+          "value": "coverflow",
+          "label": "Coverflow"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "range",
+      "id": "transition_speed",
+      "min": 100,
+      "max": 2000,
+      "step": 100,
+      "unit": "ms",
+      "label": "Transition speed",
+      "default": 300
+    },
+    {
+      "type": "checkbox",
+      "id": "center_slide",
+      "label": "Center active slide",
+      "default": false,
+      "info": "Center the active slide in the view"
+    },
+    {
+      "type": "number",
+      "id": "initial_slide",
+      "label": "Initial slide index",
+      "default": 0,
+      "info": "Start from this slide (0 = first slide)"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop_slide",
+      "label": "Enable infinite loop",
+      "default": true,
+      "info": "Loop slides continuously"
+    },
+    {
+      "type": "header",
+      "content": "Autoplay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay delay",
+      "default": 3,
+      "info": "Time between slides in milliseconds",
+      "visible_if": "{{ section.settings.autoplay == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true,
+      "info": "Pause autoplay when hovering over slider",
+      "visible_if": "{{ section.settings.autoplay == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show navigation arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination dots",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "pagination_position",
+      "label": "Pagination position",
+      "options": [
+        {
+          "value": "outside",
+          "label": "Outside slider"
+        },
+        {
+          "value": "inside",
+          "label": "Inside slider"
+        }
+      ],
+      "default": "outside"
+    },
+    {
+      "type": "header",
+      "content": "Slider Alignment"
+    },
+    {
+      "type": "radio",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment of slides",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "header",
+      "content": "Inactive Slide Appearance"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Inactive slide opacity",
+      "default": 100,
+      "info": "Opacity of slides that aren't currently active"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "number",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:settings.color_scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Block Slider"
+    }
+  ]
+}
+{% endschema %}

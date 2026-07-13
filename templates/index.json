@@ -635,7 +635,13 @@
       ],
       "name": "t:names.collections_carousel",
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "grooming-essentials",
+          "feeding-hydration",
+          "comfort-lifestyle",
+          "cleaning-mess-control",
+          "accessories"
+        ],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "columns": 4,

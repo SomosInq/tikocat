@@ -743,11 +743,11 @@
                   "type": "_comparison-row",
                   "name": "Comparision Row",
                   "settings": {
-                    "criteria": "Low Noise Operation",
+                    "criteria": "Cordless Use",
                     "show_icon_1": true,
-                    "product_feature_1": "– Under 50dB design",
-                    "show_icon_2": true,
-                    "product_feature_2": "– Often louder, noise level not specified"
+                    "product_feature_1": "– Rechargeable cordless design",
+                    "show_icon_2": false,
+                    "product_feature_2": "– Varies by model"
                   },
                   "blocks": {}
                 },
@@ -755,11 +755,11 @@
                   "type": "_comparison-row",
                   "name": "Comparision Row",
                   "settings": {
-                    "criteria": "Low Noise Operation",
+                    "criteria": "Runtime",
                     "show_icon_1": true,
-                    "product_feature_1": "– Under 50dB design",
+                    "product_feature_1": "– Up to 4–6 hours per charge",
                     "show_icon_2": true,
-                    "product_feature_2": "– Often louder, noise level not specified"
+                    "product_feature_2": "– Typically shorter runtime"
                   },
                   "blocks": {}
                 },
@@ -767,11 +767,11 @@
                   "type": "_comparison-row",
                   "name": "Comparision Row",
                   "settings": {
-                    "criteria": "Low Noise Operation",
+                    "criteria": "Speed Settings",
                     "show_icon_1": true,
-                    "product_feature_1": "– Under 50dB design",
+                    "product_feature_1": "– 2 adjustable speeds",
                     "show_icon_2": true,
-                    "product_feature_2": "– Often louder, noise level not specified"
+                    "product_feature_2": "– Often single-speed"
                   },
                   "blocks": {}
                 },
@@ -779,11 +779,71 @@
                   "type": "_comparison-row",
                   "name": "Comparision Row",
                   "settings": {
-                    "criteria": "Low Noise Operation",
+                    "criteria": "Length Options",
                     "show_icon_1": true,
-                    "product_feature_1": "– Under 50dB design",
+                    "product_feature_1": "– 6 guide combs included",
+                    "show_icon_2": false,
+                    "product_feature_2": "– Usually fewer attachments"
+                  },
+                  "blocks": {}
+                },
+                "comparison_row_dLPQhh": {
+                  "type": "_comparison-row",
+                  "name": "Comparision Row",
+                  "settings": {
+                    "criteria": "Blade System",
+                    "show_icon_1": true,
+                    "product_feature_1": "– Precision stainless steel & ceramic blades",
                     "show_icon_2": true,
-                    "product_feature_2": "– Often louder, noise level not specified"
+                    "product_feature_2": "–  Basic steel blades"
+                  },
+                  "blocks": {}
+                },
+                "comparison_row_d3YhDE": {
+                  "type": "_comparison-row",
+                  "name": "Comparision Row",
+                  "settings": {
+                    "criteria": "LCD Display",
+                    "show_icon_1": true,
+                    "product_feature_1": "– Battery status display",
+                    "show_icon_2": true,
+                    "product_feature_2": "– Not commonly included"
+                  },
+                  "blocks": {}
+                },
+                "comparison_row_9tcyX6": {
+                  "type": "_comparison-row",
+                  "name": "Comparision Row",
+                  "settings": {
+                    "criteria": "Coat Compatibility",
+                    "show_icon_1": true,
+                    "product_feature_1": "– Suitable for fine, thick, curly, and matted coats",
+                    "show_icon_2": true,
+                    "product_feature_2": "– Often optimized for light grooming only"
+                  },
+                  "blocks": {}
+                },
+                "comparison_row_P6GDTb": {
+                  "type": "_comparison-row",
+                  "name": "Comparision Row",
+                  "settings": {
+                    "criteria": "Ergonomic Design",
+                    "show_icon_1": true,
+                    "product_feature_1": "– Anti-slip handle for improved control",
+                    "show_icon_2": true,
+                    "product_feature_2": "– Standard grip"
+                  },
+                  "blocks": {}
+                },
+                "comparison_row_wgfjE7": {
+                  "type": "_comparison-row",
+                  "name": "Comparision Row",
+                  "settings": {
+                    "criteria": "Complete Kit",
+                    "show_icon_1": true,
+                    "product_feature_1": "– Includes combs, scissors, cleaning accessories, and charging cable",
+                    "show_icon_2": true,
+                    "product_feature_2": "– Often clipper-focused kits"
                   },
                   "blocks": {}
                 }
@@ -793,7 +853,12 @@
                 "comparison_row_xVJ666",
                 "comparison_row_JrRJWJ",
                 "comparison_row_KRzdVg",
-                "comparison_row_e6G74B"
+                "comparison_row_e6G74B",
+                "comparison_row_dLPQhh",
+                "comparison_row_d3YhDE",
+                "comparison_row_9tcyX6",
+                "comparison_row_P6GDTb",
+                "comparison_row_wgfjE7"
               ]
             },
             "buy_buttons_myDfLy": {

@@ -1,0 +1,71 @@
+<div class="comparison-row">
+  <div class="comparison-criteria-label">{{ block.settings.criteria }}</div>
+  <div class="comparison-row-feature">
+    <div class="compare-product-feature">
+      {% if block.settings.show_icon_1 %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M1.14648 11.0007C1.14648 5.55835 5.55835 1.14648 11.0007 1.14648C16.443 1.14648 20.8548 5.55835 20.8548 11.0007C20.8548 16.443 16.443 20.8548 11.0007 20.8548C5.55835 20.8548 1.14648 16.443 1.14648 11.0007ZM15.6118 9.19509C15.8803 8.92664 15.8803 8.49133 15.6118 8.22285C15.3433 7.95437 14.908 7.95437 14.6395 8.22285L10.084 12.7783L8.27845 10.9729C8.00997 10.7044 7.57466 10.7044 7.30618 10.9729C7.0377 11.2414 7.0377 11.6766 7.30618 11.9451L9.59788 14.2368C9.72676 14.3657 9.90166 14.4382 10.084 14.4382C10.2663 14.4382 10.4412 14.3657 10.5701 14.2368L15.6118 9.19509Z" fill="#10069F"/>
+        </svg>
+      {% endif %}
+      <span>{{ block.settings.product_feature_1 }}</span>
+    </div>
+    <div class="compare-product-feature">
+      {% if block.settings.show_icon_2 %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11.8405 1.14648C17.2828 1.14648 21.6947 5.55835 21.6947 11.0007C21.6947 16.443 17.2828 20.8548 11.8405 20.8548C6.39819 20.8548 1.98633 16.443 1.98633 11.0007C1.98633 5.55835 6.39819 1.14648 11.8405 1.14648ZM15.0766 7.76457C14.8081 7.49608 14.3729 7.49608 14.1044 7.76457L11.8405 10.0285L9.57661 7.76457C9.30812 7.49608 8.8729 7.49608 8.60441 7.76457C8.33593 8.03305 8.33593 8.46825 8.60441 8.73673L10.8683 11.0007L8.60441 13.2645C8.33593 13.533 8.33593 13.9683 8.60441 14.2368C8.8729 14.5053 9.30812 14.5053 9.57661 14.2368L11.8405 11.9728L14.1044 14.2368C14.3729 14.5053 14.8081 14.5053 15.0766 14.2368C15.3451 13.9683 15.3451 13.533 15.0766 13.2645L12.8126 11.0007L15.0766 8.73673C15.3451 8.46825 15.3451 8.03305 15.0766 7.76457Z" fill="#171717" fill-opacity="0.4"/>
+        </svg>
+      {% endif %}
+      <span>{{ block.settings.product_feature_2 }}</span>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Comparison Row",
+  "settings": [
+    {
+      "type": "text",
+      "id": "criteria",
+      "label": "Criteria",
+      "default": "Criteria"
+    },
+    {
+      "type": "header",
+      "content": "Product 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon_1",
+      "label": "Show Icon",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_feature_1",
+      "label": "Product Feature",
+      "default": "Feature"
+    },
+    {
+      "type": "header",
+      "content": "Product 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon_2",
+      "label": "Show Icon",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_feature_2",
+      "label": "Product Feature",
+      "default": "Feature"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparision Row"
+    }
+  ]
+}
+{% endschema %}

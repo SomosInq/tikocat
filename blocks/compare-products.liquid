@@ -1,0 +1,184 @@
+<div class="compare-products-table">
+  <div class="compare-products-row">
+    <div class="compare-product-box">
+      <div class="compare-product-image">
+        <img src="{{ block.settings.product_image_1 | image_url: width: 150 }}" alt="" width="96" height="96">
+      </div>
+      <div class="compare-product-info">
+        <div class="compare-product-name">
+          {{ block.settings.product_title_1 }}
+        </div>
+        <div class="compare-product-variant">
+          {{ block.settings.product_variant_1 }}
+        </div>
+        <div class="compare-product-price">
+          {{ block.settings.product_price_1 }}
+        </div>
+      </div>
+    </div>
+    <div class="compare-product-box">
+      <div class="compare-product-image">
+        <img src="{{ block.settings.product_image_2 | image_url: width: 150 }}" alt="" width="96" height="96">
+      </div>
+      <div class="compare-product-info">
+        <div class="compare-product-name">
+          {{ block.settings.product_title_2 }}
+        </div>
+        <div class="compare-product-variant">
+          {{ block.settings.product_variant_2 }}
+        </div>
+        <div class="compare-product-price">
+          {{ block.settings.product_price_2 }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comapre-product-info-list">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% style %}
+  #shopify-block-{{ block.id }}{
+    width: 100%;
+  }
+  .compare-products-row {
+    display: flex;
+    gap: 18px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+
+  .compare-product-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .compare-product-image img {
+    border-radius: 8px;
+  }
+
+  .compare-product-image {
+    max-width: 96px;
+  }
+  .compare-product-name {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .compare-product-variant {
+    font-size: 12px;
+    color: #17171799;
+  }
+  .comparison-criteria-label {
+    padding: 20px 0 16px 0;
+    border-bottom: 1px solid #171717;
+    font-size: 16.5px;
+    margin-bottom: 16px;
+  }
+
+  .comparison-row-feature {
+    display: flex;
+    gap: 18px;
+  }
+
+  .compare-product-feature {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 0 24px;
+  }
+  .compare-product-feature svg {
+    min-width: 22px;
+  }
+  .compare-product-feature span {
+    font-size: 14px;
+  }
+
+
+  .comparison-row {
+    padding-bottom: 18.2px;
+  }
+
+  .comapre-product-info-list {
+    margin-bottom: 32px;
+  }
+  
+  @media screen and (max-width: 749px) {
+    .compare-product-box{
+      flex-direction: column;
+    }
+    .compare-product-image {
+      max-width: 100%;
+    }
+    .compare-product-feature {
+      padding: 0;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Compare Products",
+  "blocks": [
+    {
+      "type": "_comparison-row"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "product_title_1",
+      "label": "Product Title"
+    },
+    {
+      "type": "text",
+      "id": "product_variant_1",
+      "label": "Product Variant"
+    },
+    {
+      "type": "text",
+      "id": "product_price_1",
+      "label": "Product Price"
+    },
+    {
+      "type": "header",
+      "content": "Product 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_2",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "product_title_2",
+      "label": "Product Title"
+    },
+    {
+      "type": "text",
+      "id": "product_variant_2",
+      "label": "Product Variant"
+    },
+    {
+      "type": "text",
+      "id": "product_price_2",
+      "label": "Product Price"
+    }
+  ],
+  "presets": [{
+    "name": "Compare Products"
+  }]
+}
+{% endschema %}

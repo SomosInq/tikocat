@@ -11,6 +11,20 @@
   {% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
 {%- enddoc -%}
 
+{%- liquid
+  assign aspect_ratio_style = ''
+  if settings.background_media == 'image' and settings.match_image_aspect_ratio and settings.background_image != blank
+    assign image_width = settings.background_image.width
+    assign image_height = settings.background_image.height
+    if image_width > 0 and image_height > 0
+      capture aspect_ratio_style
+        echo 'aspect-ratio:' | append: image_width | append: '/' | append: image_height | append: ';'
+        echo ' height:auto;'
+      endcapture
+    endif
+  endif
+%}
+
 <div
   class="
     group-block
@@ -27,6 +41,7 @@
     {% render 'spacing-style', settings: settings %}
     {% render 'size-style', settings: settings %}
     {{ style }}
+    {{ aspect_ratio_style }}
   "
   {{ shopify_attributes }}
   data-testid="group-block"

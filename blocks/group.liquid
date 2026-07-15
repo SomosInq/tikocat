@@ -339,6 +339,14 @@
       "visible_if": "{{ block.settings.background_media == 'image' }}"
     },
     {
+      "type": "checkbox",
+      "id": "match_image_aspect_ratio",
+      "label": "Match image aspect ratio",
+      "default": false,
+      "info": "Make the block’s aspect ratio equal to the background image’s intrinsic ratio.",
+      "visible_if": "{{ block.settings.background_media == 'image' }}"
+    },
+    {
       "type": "select",
       "id": "border",
       "label": "t:settings.borders",

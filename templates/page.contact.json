@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -16,6 +17,8 @@
           "name": "t:names.title",
           "settings": {
             "text": "<h1>{{ closest.page.title }}</h1>",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -27,6 +30,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -42,6 +47,8 @@
           "name": "t:names.content",
           "settings": {
             "text": "{{ closest.page.content }}",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
@@ -53,6 +60,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -68,12 +77,83 @@
         "title",
         "content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
         "color_scheme": "",
         "padding-block-start": 40,
         "padding-block-end": 0
+      }
+    },
+    "hero_VGJV9i": {
+      "type": "hero",
+      "blocks": {
+        "text_64m3zq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ closest.page.title }}</p>",
+            "line_through": false,
+            "opacity": 100,
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "show_custom_color": false,
+            "custom_color": "#000000",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_64m3zq"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/homepage_banner_pc_2.jpg_1.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "parallax_bg": false,
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     },
     "form": {
@@ -146,6 +226,7 @@
   },
   "order": [
     "main",
+    "hero_VGJV9i",
     "form"
   ]
 }

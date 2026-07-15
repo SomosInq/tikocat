@@ -134,39 +134,116 @@
     "1784101997e8c1411a": {
       "type": "_blocks",
       "blocks": {
-        "hulk_form_builder_form_block_BMf4dT": {
-          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "text_prfqi4": {
+          "type": "text",
+          "name": "t:names.text",
           "settings": {
-            "form_uuid": "LQQHyPrkN9KsOZg3d3_sng",
-            "form_settings": false,
-            "font_color": "#000000",
-            "size": 14,
-            "input_background_color": "#FFF",
-            "input_background_color_focus": "#F4DADA",
-            "input_border_radius": 1,
-            "input_border_color": "#ebe9e9",
-            "input_border_color_focus": "#2D2727",
-            "input_font_color": "#3D3131",
-            "input_size": 14,
-            "border_color": "#121212",
-            "border_radius": 2,
-            "border": 1,
-            "fill_color": "#EBE9E9",
-            "padding": 35,
-            "form_width": 600,
-            "btn_text": "Submit",
-            "sub_btn_txt_color": "#F3F3F3",
-            "sub_btn_bg_color": "#3F3333",
-            "sub_btn_font_size": 14,
-            "sub_btn_bdr_color": "#FFFFFF",
-            "sub_btn_bdr_rad": 3,
-            "sub_btn_bdr_width": 1,
-            "fonts": "Times New Roman"
-          }
+            "text": "<p>Warranty Extension Form</p>",
+            "line_through": false,
+            "opacity": 100,
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "show_custom_color": false,
+            "custom_color": "#000000",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_J43jPF": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "match_image_aspect_ratio": false,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "hulk_form_builder_form_block_CGxfXV": {
+              "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+              "settings": {
+                "form_uuid": "LQQHyPrkN9KsOZg3d3_sng",
+                "form_settings": false,
+                "font_color": "#000000",
+                "size": 14,
+                "input_background_color": "#FFF",
+                "input_background_color_focus": "#F4DADA",
+                "input_border_radius": 1,
+                "input_border_color": "#ebe9e9",
+                "input_border_color_focus": "#2D2727",
+                "input_font_color": "#3D3131",
+                "input_size": 14,
+                "border_color": "#121212",
+                "border_radius": 2,
+                "border": 1,
+                "fill_color": "#EBE9E9",
+                "padding": 35,
+                "form_width": 600,
+                "btn_text": "Submit",
+                "sub_btn_txt_color": "#F3F3F3",
+                "sub_btn_bg_color": "#3F3333",
+                "sub_btn_font_size": 14,
+                "sub_btn_bdr_color": "#FFFFFF",
+                "sub_btn_bdr_rad": 3,
+                "sub_btn_bdr_width": 1,
+                "fonts": "Times New Roman"
+              }
+            }
+          },
+          "block_order": [
+            "hulk_form_builder_form_block_CGxfXV"
+          ]
         }
       },
       "block_order": [
-        "hulk_form_builder_form_block_BMf4dT"
+        "text_prfqi4",
+        "group_J43jPF"
       ],
       "settings": {
         "content_direction": "column",
@@ -176,7 +253,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
+        "gap": 28,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
@@ -192,8 +269,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 72,
+        "padding-block-end": 72
       }
     }
   },

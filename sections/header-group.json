@@ -14,13 +14,27 @@
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
+        "announcement_jH8nGe": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "Shop our latest arrivals!",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        },
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Black Friday starts now! 30% OFF site wide.",
-            "link": "",
+            "text": "Shop now and save 10% on everything. Limited time offer.",
+            "link": "#open-subscribe-popup",
             "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
+            "font_size": "1rem",
             "weight": "",
             "letter_spacing": "normal",
             "case": "none"
@@ -29,6 +43,7 @@
         }
       },
       "block_order": [
+        "announcement_jH8nGe",
         "announcement_BxgCk9"
       ],
       "name": "t:names.announcement_bar",

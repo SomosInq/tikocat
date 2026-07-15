@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section": {
       "type": "main-blog-post",
@@ -17,6 +18,8 @@
           "static": true,
           "settings": {
             "text": "<h1>{{ article.title }}</h1>",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -28,6 +31,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -54,8 +59,7 @@
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "image",
-          "name": "Featured image",
+          "type": "_blog-post-featured-image",
           "static": true,
           "settings": {
             "image_ratio": "landscape",

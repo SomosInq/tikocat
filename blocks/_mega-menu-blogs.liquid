@@ -1,0 +1,167 @@
+{% assign blog_menu = block.settings.blog %}
+<div class="collection-menu-tab-panel" data-collection="{{ blog_menu.handle }}" data-collection-title="{{ blog_menu.title }}">
+<div class="featured-blogs-menu">
+  {% if block.settings.card_image_1 != blank %}
+    <div class="menu-featured-article">
+      {% if block.settings.card_link_1 != blank %}
+        <a href="{{ block.settings.card_link_1 }}">
+      {% endif %}
+      <div class="feature-card-image-container arrow-hover" style="background-image: url({{ block.settings.card_image_1 | image_url }}) ;">
+        <div class="feature-card-content">
+          <div>
+            <h3 class="feature-card-heading">{{ block.settings.card_heading_1 }}</h3>
+            <p class="feature-card-text">{{ block.settings.card_inline_1 }}</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+            <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="white" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      {% if block.settings.card_link_1 != blank %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if block.settings.card_image_2 != blank %}
+    <div class="menu-featured-article">
+      {% if block.settings.card_link_2 != blank %}
+        <a href="{{ block.settings.card_link_2 }}">
+      {% endif %}
+      <div class="feature-card-image-container arrow-hover" style="background-image: url({{ block.settings.card_image_2 | image_url }}) ;">
+        <div class="feature-card-content">
+          <div>
+            <h3 class="feature-card-heading">{{ block.settings.card_heading_2 }}</h3>
+            <p class="feature-card-text">{{ block.settings.card_inline_2 }}</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+            <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="white" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      {% if block.settings.card_link_2 != blank %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if block.settings.card_image_3 != blank %}
+    <div class="menu-featured-article">
+      {% if block.settings.card_link_3 != blank %}
+        <a href="{{ block.settings.card_link_3 }}">
+      {% endif %}
+      <div class="feature-card-image-container arrow-hover" style="background-image: url({{ block.settings.card_image_3 | image_url }}) ;">
+        <div class="feature-card-content">
+          <div>
+            <h3 class="feature-card-heading">{{ block.settings.card_heading_3 }}</h3>
+            <p class="feature-card-text">{{ block.settings.card_inline_3 }}</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+            <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="white" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      {% if block.settings.card_link_3 != blank %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Blog Menu",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "header",
+      "content": "Article"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image_1",
+      "label": "Article Image"
+    },
+    {
+      "type": "text",
+      "id": "card_heading_1",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "card_inline_1",
+      "default": "Here goes a subtitle that explains the article and catches atention.",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "url",
+      "id": "card_link_1",
+      "label": "Article link"
+    },
+    {
+      "type": "header",
+      "content": "Article"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image_2",
+      "label": "Article Image"
+    },
+    {
+      "type": "text",
+      "id": "card_heading_2",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "card_inline_2",
+      "default": "Here goes a subtitle that explains the article and catches atention.",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "url",
+      "id": "card_link_2",
+      "label": "Article link"
+    },
+    {
+      "type": "header",
+      "content": "Article"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image_3",
+      "label": "Article Image"
+    },
+    {
+      "type": "text",
+      "id": "card_heading_3",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "card_inline_3",
+      "default": "Here goes a subtitle that explains the article and catches atention.",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "url",
+      "id": "card_link_3",
+      "label": "Article link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Menu"
+    }
+  ]
+}
+{% endschema %}

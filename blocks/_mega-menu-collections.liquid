@@ -1,0 +1,87 @@
+{% assign collection_menu = block.settings.collection %}
+{% assign popular_products = block.settings.product_list %}
+<div class="collection-menu-tab-panel" data-collection="{{ collection_menu.handle }}" data-collection-title="{{ collection_menu.title }}">
+  <div class="menu-feature-products">
+    <div class="feature-product-title">MOST POPULAR</div>
+    <div class="view-all-collection-link">
+      <a href="{{ collection_menu.url }}" class="arrow-hover">All {{ collection_menu.title }} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+  <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="#171717" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>
+    </div>
+    {% for popular_product in popular_products %}
+      <div>
+        {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: popular_product %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="menu-feature-card arrow-hover">
+    {% if block.settings.card_link != blank %}
+      <a href="{{ block.settings.card_link }}">
+    {% endif %}
+    <div class="feature-card-image-container" style="background-image: url({{ block.settings.card_image | image_url }}) ;">
+      <div class="feature-card-content">
+        <div>
+          <h3 class="feature-card-heading">{{ block.settings.card_heading }}</h3>
+          <p class="feature-card-text">{{ block.settings.inline }}</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+          <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="white" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    {% if block.settings.card_link != blank %}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Collection Menu",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Popular Products",
+      "limit": 2
+    },
+    {
+      "type": "header",
+      "content": "Feature Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "inline",
+      "default": "Makes at home grooming feel controlled and manageable.",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "url",
+      "id": "card_link",
+      "label": "Card link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Menu"
+    }
+  ]
+}
+{% endschema %}

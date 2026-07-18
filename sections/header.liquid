@@ -270,6 +270,8 @@
   {% endif %}
 </header-component>
 
+{% content_for 'blocks' %}
+
 <script
   src="{{ 'header.js' | asset_url }}"
   type="module"
@@ -656,6 +658,11 @@
   "name": "t:names.header",
   "tag": "header",
   "class": "header-section",
+  "blocks": [
+    {
+      "type": "_mega-menu"
+    }
+  ],
   "settings": [
     {
       "type": "header",

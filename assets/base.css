@@ -4298,3 +4298,214 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+/* Hide mega menus by default */
+.mega-menu-wrapper {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 0 0 29.4px 29.4px;
+    overflow: hidden;
+}
+
+/* Show when active */
+.mega-menu-wrapper.active-mega-menu {
+display: block;
+}
+
+/* Optional: Add indicator to active menu item */
+.menu-list__list-item.active-mega-menu .menu-list__link {
+color: #000;
+font-weight: 500;
+}
+
+/* Optional: Add a gap between menu and mega-menu for easier cursor movement */
+.mega-menu-wrapper::before {
+content: '';
+position: absolute;
+top: -10px;
+left: 0;
+width: 100%;
+height: 10px;
+background: transparent;
+}
+
+/* Ensure menu items have proper positioning */
+.menu-list__list-item {
+position: relative;
+}
+
+/* Mega Menu Wrapper */
+.mega-menu-wrapper {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 999;
+}
+
+
+
+.mega-menu-wrapper.active-mega-menu {
+  display: block;
+}
+
+.mega-menu-box{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 375fr 1020fr;
+}
+
+
+@media screen and (min-width: 1300px) {
+  .mega-menu-box{
+    gap: 60px;
+    grid-template-columns: 275fr 1020fr;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .mega-menu-box{
+    gap: 30px;
+  }
+}
+
+.mega-menu-left-column{
+  display: flex;
+  flex-direction: column;
+}
+.mega-menu-view-all{
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 20px 0 16px;
+  border-top: 1px solid #10069F;
+}
+.mega-menu-view-all a{
+  display: flex;
+  width: 100%;
+  font-size: 16.5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h5.megamenu-heading-title{
+  font-size: 16.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.collection-menu-tab-panel{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 650fr 340fr;
+}
+
+.menu-feature-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 18px;
+  row-gap: 35px;
+}
+.feature-card-image-container {
+  height: 100%;
+  border-radius: 19.62px;
+  background: #FAFAFA;
+  position: relative;
+  background-size: cover;
+}
+.feature-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+}
+h3.feature-card-heading {
+  margin-bottom: 0;
+  color: #D3FF33;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+p.feature-card-text{
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Mega Menu - Collection Navigation Tabs */
+.collections-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.collection-nav-item {
+  display: block;
+  text-decoration: none;
+  color: #17171787;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.collection-nav-item:hover,
+.collection-nav-item.active {
+  color: #171717;
+  text-decoration: underline;
+}
+
+/* Hide non-active tab panels */
+.collection-menu-tab-panel:not(.active) {
+  display: none;
+}
+.arrow-hover svg.arrow{
+  min-width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3s;
+  transform: rotate(0deg);
+}
+.arrow-hover:hover svg.arrow{
+  transform: rotate(90deg);
+}
+.view-all-collection-link{
+  text-align: right;
+}
+.feature-product-title{
+  color: #17171799;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.view-all-collection-link a{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: flex-end;
+  font-size: 16.5px;
+}
+
+.featured-blogs-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 17px;
+    grid-column: span 2;
+}
+
+.menu-featured-article {
+    aspect-ratio: 328/531;
+}
+.menu-featured-article h3.feature-card-heading {
+    color: #fff;
+}

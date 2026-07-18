@@ -1,0 +1,136 @@
+<div data-mega-menu-for="{{ block.settings.mega_menu_for }}" class="mega-menu-wrapper"
+{% if request.design_mode and block.settings.show_mega_menu %}
+  style="display:block !important;position:relative !important;"
+{% endif %}>
+<div class="section-background color-{{ block.settings.color_scheme }}"></div>
+  <div class="section section--page-width color-{{ block.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: block.settings %}"
+  >
+    <div class="mega-menu-box">
+      <div class="mega-menu-left-column">
+       {% if block.settings.mega_menu_type != 'blogs' %}
+         {% if block.settings.heading != blank %}
+          <h5 class="megamenu-heading-title">{{ block.settings.heading }}</h5>
+         {% endif %}
+       {% endif %}
+        <div class="collections-nav-list"></div>
+        <div class="mega-menu-view-all">
+          {% if block.settings.mega_menu_type == 'blogs' %}
+            <a href="{{ block.settings.view_all_url | default: '/blogs' }}" class="arrow-hover">
+              {{ block.settings.view_all_text | default: 'More' }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+                <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="#171717" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {% else %}
+            <a href="{{ routes.all_products_collection_url }}" class="arrow-hover">
+              {{ block.settings.view_all_text | default: 'View All Products' }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="arrow">
+                <path d="M2.85742 10.0008H17.1431M11.5876 15.5564L17.1431 10.0008L11.5876 4.44531" stroke="#171717" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="mega-menu-right-column">
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Mega Menu",
+  "blocks": [
+    {
+      "type": "_mega-menu-collections"
+    },
+    {
+      "type": "_mega-menu-blogs"
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_mega_menu",
+      "label": "Show mega menu",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "mega_menu_for",
+      "label": "Mega Menu for:"
+    },
+    {
+      "type": "select",
+      "id": "mega_menu_type",
+      "label": "Mega Menu Type",
+      "options": [
+        {
+          "value": "collections",
+          "label": "Collections"
+        },
+        {
+          "value": "blogs",
+          "label": "Blogs"
+        }
+      ],
+      "default": "collections"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Collections",
+      "info": "Only shown for Collections type"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Text",
+      "info": "Default: 'View All Products' for collections, 'More' for blogs"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All Link URL",
+      "info": "Only used for Blogs type. Default: /blogs"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mega Menu"
+    }
+  ]
+}
+{% endschema %}

@@ -25,9 +25,19 @@
       </a>
     </div>
     {% content_for 'blocks' %}
+    
   {% endcapture %}
 
   {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}
+  <div class="view-more-details__wrapper">
+    <a
+      href="{{ product.selected_or_first_available_variant.url }}"
+      class="view-more-details link"
+    >
+      {{ 'products.product.view_full_details' | t }}
+      <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+    </a>
+  </div>
 </div>
 
 {% stylesheet %}
@@ -39,6 +49,11 @@
   }
 
   .view-product-title {
+    display: none;
+  }
+
+  .view-more-details__wrapper,
+  .view-more-details {
     display: none;
   }
 

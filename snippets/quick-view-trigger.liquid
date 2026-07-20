@@ -1,0 +1,73 @@
+{%- doc -%}
+  Renders a button that opens the Quick View modal for a product.
+
+  @param {object} product - The product object
+{%- enddoc -%}
+
+<quick-view-component
+  class="quick-view-trigger"
+  ref="quickView"
+  data-product-title="{{ product.title }}"
+>
+  <button
+    class="button button-unstyled quick-view-trigger__button"
+    type="button"
+    on:click="/handleClick"
+    aria-label="{{ 'accessibility.quick_view' | t: product_title: product.title }}"
+  >
+    <span class="svg-wrapper">
+      {{- 'icon-quick-view.svg' | inline_asset_content -}}
+    </span>
+  </button>
+</quick-view-component>
+
+{% stylesheet %}
+  .quick-view-trigger {
+    --quick-view-offset: var(--padding-sm);
+    --quick-view-top: calc(var(--quick-view-offset) + var(--padding-block-start));
+    --quick-view-right: calc(var(--quick-view-offset) + var(--padding-inline-end));
+
+    position: absolute;
+    top: max(var(--quick-view-top), calc((var(--border-radius) + var(--quick-view-top)) * (1 - cos(45deg))));
+    right: max(var(--quick-view-right), calc((var(--border-radius) + var(--quick-view-right)) * (1 - cos(45deg))));
+    z-index: var(--layer-raised);
+    display: none;
+
+    @media screen and (min-width: 750px) {
+      --quick-view-offset: var(--padding-md);
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    product-card:focus-within .quick-view-trigger,
+    .card-gallery:hover .quick-view-trigger {
+      display: grid;
+      will-change: margin, opacity;
+      animation: elementSlideInTop var(--animation-speed) var(--animation-easing);
+    }
+  }
+
+  @container (max-width: 70px) {
+    .card-gallery:hover .quick-view-trigger {
+      display: none;
+    }
+  }
+
+  .quick-view-trigger__button {
+    display: grid;
+    place-items: center;
+    width: var(--minimum-touch-target, 44px);
+    height: var(--minimum-touch-target, 44px);
+    padding: var(--padding-xs);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border-radius: 100px;
+    box-shadow: var(--shadow-popover);
+    cursor: pointer;
+  }
+
+  /* Nudge below a top-right badge so the two overlays don't collide */
+  .card-gallery:has(.product-badges--top-right .product-badges__badge) .quick-view-trigger {
+    top: calc(var(--quick-view-top) + 40px);
+  }
+{% endstylesheet %}

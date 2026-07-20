@@ -34,6 +34,7 @@
     "pause_video": "Pause video",
     "play_model": "Play 3D model",
     "play_video": "Play video",
+    "quick_view": "Quick view {{ product_title }}",
     "loading_product_recommendations": "Loading product recommendations",
     "rating": "Rating of this product is {{ rating }} out of 5",
     "remove_item": "Remove {{ title}}",
@@ -326,7 +327,8 @@
       "quantity_increments": "Increments of {{ increment }}",
       "quantity_minimum": "Minimum of {{ minimum }}",
       "quantity_maximum": "Maximum of {{ maximum }}",
-      "in_cart": "in cart"
+      "in_cart": "in cart",
+      "view_full_details": "View full details"
     }
   }
 }

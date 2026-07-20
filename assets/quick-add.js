@@ -2,7 +2,7 @@ import { morph } from '@theme/morph';
 import { Component } from '@theme/component';
 import { CartUpdateEvent, ThemeEvents } from '@theme/events';
 import { DialogComponent, DialogCloseEvent } from '@theme/dialog';
-import { mediaQueryLarge, isMobileBreakpoint, getIOSVersion } from '@theme/utilities';
+import { mediaQueryLarge, isMobileBreakpoint, getIOSVersion, fetchHTML } from '@theme/utilities';
 
 export class QuickAddComponent extends Component {
   /** @type {AbortController | null} */
@@ -124,24 +124,7 @@ export class QuickAddComponent extends Component {
     this.#abortController = new AbortController();
 
     try {
-      const response = await fetch(productPageUrl, {
-        signal: this.#abortController.signal,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch product page: HTTP error ${response.status}`);
-      }
-
-      const responseText = await response.text();
-      const html = new DOMParser().parseFromString(responseText, 'text/html');
-
-      return html;
-    } catch (error) {
-      if (error.name === 'AbortError') {
-        return null;
-      } else {
-        throw error;
-      }
+      return await fetchHTML(productPageUrl, { signal: this.#abortController.signal });
     } finally {
       this.#abortController = null;
     }
@@ -247,11 +230,13 @@ class QuickAddDialog extends DialogComponent {
     const anchorElement = /** @type {HTMLAnchorElement} */ (
       event.detail.data.html?.querySelector('.view-product-title a')
     );
-    const viewMoreDetailsLink = /** @type {HTMLAnchorElement} */ (this.querySelector('.view-product-title a'));
+    const titleLink = /** @type {HTMLAnchorElement} */ (this.querySelector('.view-product-title a'));
+    const viewMoreDetailsLink = /** @type {HTMLAnchorElement} */ (this.querySelector('.view-more-details a'));
     const mobileProductTitle = /** @type {HTMLAnchorElement} */ (this.querySelector('.product-header a'));
 
     if (!anchorElement) return;
 
+    if (titleLink) titleLink.href = anchorElement.href;
     if (viewMoreDetailsLink) viewMoreDetailsLink.href = anchorElement.href;
     if (mobileProductTitle) mobileProductTitle.href = anchorElement.href;
   };

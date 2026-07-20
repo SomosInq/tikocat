@@ -1007,6 +1007,8 @@
     "quick_add": "Quick add",
     // Color scheme for quick add buttons on product cards
     "quick_add_colors": "Quick add colors",
+    // Checkbox setting to enable a quick view popup from product cards
+    "quick_view": "Quick view",
     "ratio": "Ratio",
     "read_only": "Read only",
     "reflection_opacity": "Reflection opacity",

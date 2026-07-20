@@ -474,6 +474,32 @@ export function getVisibleElements(root, elements, ratio = 1, axis) {
   });
 }
 
+/**
+ * Fetches a URL and parses the response as an HTML document.
+ * @param {string} url - The URL to fetch.
+ * @param {RequestInit} [options] - Fetch options (e.g. an AbortSignal).
+ * @returns {Promise<Document | null>} The parsed HTML document, or null if the request was aborted.
+ */
+export async function fetchHTML(url, options) {
+  if (!url) return null;
+
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch page: HTTP error ${response.status}`);
+    }
+
+    const responseText = await response.text();
+    return new DOMParser().parseFromString(responseText, 'text/html');
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      return null;
+    }
+    throw error;
+  }
+}
+
 export function getIOSVersion() {
   const { userAgent } = navigator;
   const isIOS = /(iPhone|iPad)/i.test(userAgent);

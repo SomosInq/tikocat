@@ -12,6 +12,7 @@ import { morph } from '@theme/morph';
  * @property {HTMLAnchorElement} productCardLink - The product card link element.
  * @property {import('slideshow').Slideshow} [slideshow] - The slideshow component.
  * @property {import('quick-add').QuickAddComponent} [quickAdd] - The quick add component.
+ * @property {import('quick-view').QuickViewComponent} [quickView] - The quick view component.
  * @property {HTMLElement} [cardGallery] - The card gallery component.
  *
  * @extends {Component<Refs>}
@@ -45,6 +46,7 @@ export class ProductCard extends Component {
 
   #fetchProductPageHandler = () => {
     this.refs.quickAdd?.fetchProductPage(this.productPageUrl);
+    this.refs.quickView?.fetchProductPage(this.productPageUrl);
   };
 
   /**
@@ -135,6 +137,7 @@ export class ProductCard extends Component {
     this.#isUnavailableVariantSelected(event);
     this.#updateProductUrl(event);
     this.refs.quickAdd?.fetchProductPage(this.productPageUrl);
+    this.refs.quickView?.fetchProductPage(this.productPageUrl);
 
     if (event.target !== this.variantPicker) {
       this.variantPicker?.updateVariantPicker(event.detail.data.html);

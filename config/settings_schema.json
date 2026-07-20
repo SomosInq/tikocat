@@ -2175,6 +2175,12 @@
         "visible_if": "{{ settings.quick_add == true }}"
       },
       {
+        "type": "checkbox",
+        "id": "quick_view",
+        "label": "t:settings.quick_view",
+        "default": true
+      },
+      {
         "type": "header",
         "content": "t:settings.media"
       },

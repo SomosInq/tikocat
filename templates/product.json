@@ -120,6 +120,7 @@
                 "background_media": "none",
                 "video_position": "cover",
                 "background_image_position": "cover",
+                "match_image_aspect_ratio": false,
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -465,6 +466,7 @@
     },
     "hero_3tEeE9": {
       "type": "hero",
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -501,6 +503,7 @@
     },
     "rounded_corner_8mGfVq": {
       "type": "rounded-corner",
+      "disabled": true,
       "name": "Rounded Corner",
       "settings": {
         "corner_position": "top",
@@ -579,6 +582,7 @@
         "text_6d46qn",
         "text_hAbEN6"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",
@@ -959,6 +963,7 @@
         "swiper_slide_iTRBz9",
         "swiper_slide_RFP6Bn"
       ],
+      "disabled": true,
       "name": "Block Slider",
       "settings": {
         "section_width": "page-width",
@@ -1014,6 +1019,7 @@
             "video_position": "cover",
             "background_image": "shopify://shop_images/Dogs_1.png",
             "background_image_position": "cover",
+            "match_image_aspect_ratio": false,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -1119,6 +1125,7 @@
             "video_position": "cover",
             "background_image": "shopify://shop_images/Mission.png",
             "background_image_position": "cover",
+            "match_image_aspect_ratio": false,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -1206,6 +1213,7 @@
         "group_9tPXB9",
         "group_7AAL9y"
       ],
+      "disabled": true,
       "name": "t:names.split_showcase",
       "settings": {
         "content_direction": "row",
@@ -1317,6 +1325,7 @@
         "text_imNAnp",
         "before_and_after_9GYcRD"
       ],
+      "disabled": true,
       "name": "Before and After",
       "settings": {
         "content_direction": "column",
@@ -1372,6 +1381,7 @@
             "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
+            "match_image_aspect_ratio": false,
             "border": "solid",
             "border_width": 1,
             "border_opacity": 100,
@@ -1647,6 +1657,7 @@
       "block_order": [
         "group_ab44pf"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",
@@ -1702,6 +1713,7 @@
             "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
+            "match_image_aspect_ratio": false,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,

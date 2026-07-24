@@ -1,5 +1,5 @@
 {% assign blog_menu = block.settings.blog %}
-<div class="collection-menu-tab-panel" data-collection="{{ blog_menu.handle }}" data-collection-title="{{ blog_menu.title }}">
+<div class="collection-menu-tab-panel" data-collection="{{ blog_menu.handle }}" data-collection-title="{{ blog_menu.title }}" data-collection-url="{{ blog_menu.url }}">
 <div class="featured-blogs-menu">
   {% if block.settings.card_image_1 != blank %}
     <div class="menu-featured-article">

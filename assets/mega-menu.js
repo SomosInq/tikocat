@@ -52,11 +52,12 @@ class MegaMenu {
     tabPanels.forEach((panel, index) => {
       const collectionHandle = panel.getAttribute('data-collection');
       const collectionTitle = panel.getAttribute('data-collection-title');
+      const collectionURL = panel.getAttribute('data-collection-url')
 
       if (!collectionTitle) return;
 
       // Create and configure nav item
-      const navItem = this.createNavItem(collectionHandle, collectionTitle);
+      const navItem = this.createNavItem(collectionHandle, collectionTitle, collectionURL);
 
       // Set first item as active
       if (index === 0) {
@@ -76,9 +77,9 @@ class MegaMenu {
   /**
    * Creates a navigation item element
    */
-  createNavItem(collectionHandle, collectionTitle) {
+  createNavItem(collectionHandle, collectionTitle, collectionURL) {
     const navItem = document.createElement('a');
-    navItem.href = `/collections/${collectionHandle || 'all'}`;
+    navItem.href = collectionURL;
     navItem.className = 'collection-nav-item';
     navItem.textContent = collectionTitle;
     navItem.setAttribute('data-collection-tab', collectionHandle || 'all');

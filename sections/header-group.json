@@ -1132,7 +1132,7 @@
           "type": "_mega-menu",
           "name": "Mega Menu",
           "settings": {
-            "show_mega_menu": true,
+            "show_mega_menu": false,
             "mega_menu_for": "Shop by Pet",
             "mega_menu_type": "collections",
             "color_scheme": "",

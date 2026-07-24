@@ -86,7 +86,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03_webp.png",
                 "card_heading": "Cut with Care. Not with Stress.",
                 "inline": "Makes at home grooming feel controlled and manageable.",
-                "card_link": ""
+                "card_link": "shopify://collections/grooming-essentials"
               },
               "blocks": {
                 "product-card": {
@@ -295,7 +295,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03.webp_2.png",
                 "card_heading": "Where Routine Feels Natural.",
                 "inline": "Makes at home grooming feel controlled and manageable.",
-                "card_link": ""
+                "card_link": "shopify://collections/feeding-hydration"
               },
               "blocks": {
                 "product-card": {
@@ -504,7 +504,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03.webp_3.png",
                 "card_heading": "Less Fuss.  More Done.",
                 "inline": "Tidy Home. Happy Routine.",
-                "card_link": "#"
+                "card_link": "shopify://collections/cleaning-mess-control"
               },
               "blocks": {
                 "product-card": {
@@ -713,7 +713,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03.webp_4.png",
                 "card_heading": "Their Favorite Spot Every Day.",
                 "inline": "Made for How They Actually Rest.",
-                "card_link": ""
+                "card_link": "shopify://collections/comfort-lifestyle"
               },
               "blocks": {
                 "product-card": {
@@ -922,7 +922,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03.webp_5.png",
                 "card_heading": "Finally. Pet Care That Gets It.",
                 "inline": "Everything Your Pack Needs. Right Here.",
-                "card_link": ""
+                "card_link": "shopify://collections/accessories"
               },
               "blocks": {
                 "product-card": {
@@ -1155,7 +1155,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03_webp.png",
                 "card_heading": "Cut with Care. Not with Stress.",
                 "inline": "Makes at home grooming feel controlled and manageable.",
-                "card_link": ""
+                "card_link": "shopify://collections/dogs"
               },
               "blocks": {
                 "product-card": {
@@ -1364,7 +1364,7 @@
                 "card_image": "shopify://shop_images/nav-banner-03.webp_6.png",
                 "card_heading": "Complete Care They Deserve.",
                 "inline": "Cats Are Picky. These Ones They Love.",
-                "card_link": ""
+                "card_link": "shopify://collections/cats"
               },
               "blocks": {
                 "product-card": {

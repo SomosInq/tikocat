@@ -1608,17 +1608,17 @@
               "settings": {
                 "blog": "pet-tips",
                 "card_image_1": "shopify://shop_images/Background_4.png",
-                "card_heading_1": "Heading",
+                "card_heading_1": "Pet Tips Article Title",
                 "card_inline_1": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_1": "",
+                "card_link_1": "shopify://blogs/pet-tips/sample-pet-tips",
                 "card_image_2": "shopify://shop_images/Background_5.png",
-                "card_heading_2": "Heading",
+                "card_heading_2": "Pet Tips Article Title",
                 "card_inline_2": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_2": "",
+                "card_link_2": "shopify://blogs/pet-tips/sample-pet-tips",
                 "card_image_3": "shopify://shop_images/Background_6.png",
-                "card_heading_3": "Heading",
+                "card_heading_3": "Pet Tips Article Title",
                 "card_inline_3": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_3": ""
+                "card_link_3": "shopify://blogs/pet-tips/sample-pet-tips"
               },
               "blocks": {}
             },

@@ -1627,18 +1627,18 @@
               "name": "Blog Menu",
               "settings": {
                 "blog": "blog",
-                "card_image_1": "shopify://shop_images/Background_1.png",
-                "card_heading_1": "Heading",
+                "card_image_1": "shopify://shop_images/nav-banner-03.webp_6.png",
+                "card_heading_1": "Blog Article Title",
                 "card_inline_1": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_1": "",
-                "card_image_2": "shopify://shop_images/Background_7.png",
-                "card_heading_2": "Heading",
+                "card_link_1": "shopify://blogs/blog/sample-blog",
+                "card_image_2": "shopify://shop_images/nav-banner-03.webp_5.png",
+                "card_heading_2": "Blog Article Title",
                 "card_inline_2": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_2": "",
+                "card_link_2": "shopify://blogs/blog/sample-blog",
                 "card_image_3": "shopify://shop_images/Background_9.png",
-                "card_heading_3": "Heading",
+                "card_heading_3": "Blog Article Title",
                 "card_inline_3": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_3": ""
+                "card_link_3": "shopify://blogs/blog/sample-blog"
               },
               "blocks": {}
             }

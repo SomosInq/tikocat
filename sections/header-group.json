@@ -1588,17 +1588,17 @@
               "settings": {
                 "blog": "product-guides",
                 "card_image_1": "shopify://shop_images/Background_1.png",
-                "card_heading_1": "Heading",
+                "card_heading_1": "Product Guide Article Title",
                 "card_inline_1": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_1": "",
+                "card_link_1": "shopify://blogs/product-guides/product-guide-article-title",
                 "card_image_2": "shopify://shop_images/Background_2.png",
-                "card_heading_2": "Heading",
+                "card_heading_2": "Product Guide Article Title",
                 "card_inline_2": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_2": "",
+                "card_link_2": "shopify://blogs/product-guides/product-guide-article-title",
                 "card_image_3": "shopify://shop_images/Background_3.png",
-                "card_heading_3": "Heading",
+                "card_heading_3": "Product Guide Article Title",
                 "card_inline_3": "Here goes a subtitle that explains the article and catches atention.",
-                "card_link_3": ""
+                "card_link_3": "shopify://blogs/product-guides/product-guide-article-title"
               },
               "blocks": {}
             },

@@ -1206,7 +1206,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "About Us",
-                "link": "shopify://pages/contact",
+                "link": "shopify://pages/about-us",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "width": "fit-content",

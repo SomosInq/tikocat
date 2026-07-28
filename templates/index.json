@@ -567,7 +567,10 @@
             "carousel_buttons_QtQdja": {
               "type": "carousel-buttons",
               "name": "t:names.carousel_buttons",
-              "settings": {},
+              "settings": {
+                "icon_style": "chevron",
+                "icon_shape": "circle"
+              },
               "blocks": {}
             }
           },

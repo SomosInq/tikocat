@@ -10,6 +10,7 @@
 {
   "accessibility": {
     "account": "Account",
+    "breadcrumb": "Breadcrumb",
     "cart": "Cart",
     "cart_count": "Total items in cart",
     "close_dialog": "Close dialog",

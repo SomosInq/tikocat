@@ -166,7 +166,7 @@
                     "link": "",
                     "open_in_new_tab": false,
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 5,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -233,7 +233,7 @@
                     "product_swatches_alignment": "flex-start",
                     "product_swatches_alignment_mobile": "flex-start",
                     "hide_padding": false,
-                    "product_swatches_padding_top": 0,
+                    "product_swatches_padding_top": 10,
                     "product_swatches_padding_bottom": 0,
                     "product_swatches_padding_left": 0,
                     "product_swatches_padding_right": 0

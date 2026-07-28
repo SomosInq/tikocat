@@ -20,9 +20,9 @@
 {% endcapture %}
 
 {% liquid
-  assign slideshow_class = 'slideshow--single-media'
+  assign slideshow_class = 'slideshow--single-media slideshow-banner'
   if section.blocks.size > 1
-    assign slideshow_class = ''
+    assign slideshow_class = 'slideshow-banner'
   endif
 
   assign show_arrows = true
@@ -156,6 +156,10 @@
         {
           "value": "auto",
           "label": "t:options.auto"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:options.adapt_to_image"
         },
         {
           "value": "small",

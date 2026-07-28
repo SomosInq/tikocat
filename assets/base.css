@@ -4509,3 +4509,60 @@ p.feature-card-text{
 .menu-featured-article h3.feature-card-heading {
     color: #fff;
 }
+
+slideshow-component.slideshow-banner slideshow-controls {
+  bottom: 39px;
+  max-width: 60%;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  mix-blend-mode: normal;
+}
+
+slideshow-component.slideshow-banner slideshow-arrows {
+  height: auto;
+  bottom: 39px;
+  top: auto;
+  left: 0;
+  padding: 0 34px;
+  mix-blend-mode: normal;
+}
+slideshow-component.slideshow-banner slideshow-arrows::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: 48px;
+  width: calc(100% - 96px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.10);
+}
+slideshow-component.slideshow-banner slideshow-arrows .slideshow-control {
+    opacity: 1;
+}
+
+slideshow-component.slideshow-banner slideshow-arrows .slideshow-control .svg-wrapper{
+  color: #fff;
+}
+
+
+slideshow-component.slideshow-banner slideshow-controls button.slideshow-control {
+  background: #fff;
+  width: 5px;
+  height: 5px;
+  margin: 0;
+}
+slideshow-component.slideshow-banner slideshow-controls ol.slideshow-controls__dots {
+    gap: 19px;
+}
+
+slideshow-component.slideshow-banner slideshow-controls button.slideshow-control[aria-selected='true'] {
+  border: 2px solid #fff;
+  background: transparent;
+  width: 8px;
+  height: 8px;
+
+}
+slideshow-component.slideshow-banner slideshow-controls button.slideshow-control::after {
+    display: none;
+}

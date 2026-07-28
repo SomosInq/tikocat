@@ -17,8 +17,8 @@
       # In this case, we want the section to be able to read the image aspect ratio of the first slide and apply it to the slideshow slides and slides.
     %}
     {% style %}
-      .shopify-section-{{ section.id }} slideshow-slides,
-      .shopify-section-{{ section.id }} slideshow-slide {
+      #shopify-section-{{ section.id }} slideshow-slides,
+      #shopify-section-{{ section.id }} slideshow-slide {
         min-height: {{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}vw;
       }
     {% endstyle %}

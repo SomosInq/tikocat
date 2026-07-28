@@ -473,7 +473,7 @@
         "autoplay": false,
         "autoplay_speed": 4,
         "section_width": "full-width",
-        "slide_height": "large",
+        "slide_height": "adapt_image",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -483,7 +483,7 @@
       "name": "Rounded Corner",
       "settings": {
         "corner_position": "top",
-        "height": 52,
+        "height": 29,
         "front_color": "#ffffff",
         "back_color": "",
         "border_radius": 22,

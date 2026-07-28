@@ -3,6 +3,7 @@
 
   @param {object} product_resource - The product object, which contains variants and options.
   @param {boolean} [has_option_selected] - Whether an option is already selected.
+  @param {boolean} [show_option_label] - Whether to show a "{Option name}: {value}" label above the swatches.
 
   @example
   {% render 'variant-swatches', product_resource: product %}
@@ -67,6 +68,12 @@
       -%}
 
       <fieldset class="variant-option variant-option--buttons variant-option--swatches">
+        {% if show_option_label %}
+          <div class="variant-option__swatch-label">
+            {{- product_option.name -}}:
+            <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
+          </div>
+        {% endif %}
         {% capture children %}
           {%- for product_option_value in product_option.values -%}
             {% liquid

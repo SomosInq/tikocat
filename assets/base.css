@@ -1287,9 +1287,9 @@ results-list[initialized] {
 .button-secondary,
 button.shopify-payment-button__button--unbranded {
   --text-align: center;
-
-  display: grid;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
   text-decoration: none;
   text-align: var(--text-align);
   color: var(--button-color);
@@ -2500,7 +2500,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   align-items: center;
 
   @media screen and (min-width: 750px) {
-    --checkbox-size: 16px;
+    --checkbox-size: 20px;
     --checkbox-border-radius: 5px;
     --checkbox-label-padding: 6px;
   }
@@ -2556,7 +2556,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   flex-shrink: 0;
   border: var(--checkbox-border);
   border-radius: var(--checkbox-border-radius);
-  background-color: var(--color-background);
+  background-color: #F2F2FF;
 }
 
 .checkbox__label-text {
@@ -2564,6 +2564,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #171717;
 }
 
 .checkbox .icon-checkmark path {

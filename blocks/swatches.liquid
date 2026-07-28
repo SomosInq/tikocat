@@ -27,7 +27,7 @@
     "
     {{ block.shopify_attributes }}
   >
-    {% render 'variant-swatches', product_resource: closest.product %}
+    {% render 'variant-swatches', product_resource: closest.product, show_option_label: block_settings.show_swatch_label %}
   </product-swatches>
 {% endif %}
 
@@ -97,6 +97,13 @@
   .hidden-swatches__count:hover {
     color: var(--color-foreground-rgb);
   }
+
+  .variant-option__swatch-label {
+    width: 100%;
+    font-size: var(--font-size--sm);
+    color: var(--color-foreground);
+    padding-block-end: var(--padding-3xs);
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -107,6 +114,12 @@
     {
       "type": "paragraph",
       "content": "t:content.resource_reference_product_swatches"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatch_label",
+      "label": "t:settings.show_swatch_label",
+      "default": true
     },
     {
       "type": "select",

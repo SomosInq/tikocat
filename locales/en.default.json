@@ -73,6 +73,8 @@
     "clear_all": "Clear all",
     "close": "Close",
     "open": "Open",
+    // Button to hide the desktop vertical filters panel and widen the product grid
+    "hide_filters": "Hide filters",
     // Continue shopping link on the cart page which takes the user back to a collection page
     "continue_shopping": "Continue shopping",
     "enter_password": "Enter password",
@@ -91,6 +93,8 @@
       "other": "See {{ count }} items"
     },
     "show_filters": "Filter",
+    // Button to show the desktop vertical filters panel again after hiding it
+    "show_filters_desktop": "Show filters",
     "show_less": "Show less",
     "show_more": "Show more",
     "sign_in_options": "Other sign in options",
@@ -107,7 +111,8 @@
     "sign_up": "Sign up",
     "submit": "Submit",
     "view_store_information": "View store information",
-    "sort": "Sort"
+    "sort": "Sort",
+    "sort_by": "Sort by"
   },
   "blocks": {
     "contact_form": {
@@ -163,6 +168,7 @@
     "cart_total": "Cart total",
     "checkout": "Check out",
     "collection_placeholder": "Collection title",
+    "compare": "Compare",
     "discount_code": "Discount code",
     "shipping_discount_error": "Shipping discounts are shown at checkout after adding an address",
     "discount_code_error": "Discount code cannot be applied to your cart",
@@ -193,8 +199,8 @@
     "inventory_in_stock": "In stock",
     "inventory_out_of_stock": "Out of stock",
     "item_count": {
-      "one": "{{ count }} item",
-      "other": "{{ count }} items"
+      "one": "{{ count }} product",
+      "other": "{{ count }} products"
     },
     "language": "Language",
     "localization_region_and_language": "Region and language",

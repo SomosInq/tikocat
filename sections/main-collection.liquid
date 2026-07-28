@@ -34,6 +34,7 @@
 
   <div
     class="collection-wrapper grid gap-style"
+    data-skip-node-update="true"
   >
     {% content_for 'block',
       type: 'filters',
@@ -112,6 +113,23 @@
   .collection-wrapper:has(.facets--vertical) .facets-block-wrapper--vertical:not(.hidden) ~ .main-collection-grid {
     @media screen and (min-width: 750px) {
       grid-column: var(--facets-vertical-col-width) / var(--full-width-column-number);
+    }
+  }
+
+  /* Desktop "Hide filters" toggle: driven by a `filters-hidden` class on this
+     same wrapper (see FacetsToggleComponent in assets/facets.js), using plain
+     descendant selectors rather than the sibling-combinator rule above, so it
+     doesn't depend on exact DOM adjacency between the panel and the grid. */
+  .collection-wrapper.filters-hidden .facets-block-wrapper--vertical {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .collection-wrapper.filters-hidden .main-collection-grid {
+      /* !important: overrides the higher-specificity sibling-combinator rule
+         above, which otherwise always matches once the panel stops toggling
+         its own `.hidden` class. */
+      grid-column: var(--grid-column--desktop) !important;
     }
   }
 

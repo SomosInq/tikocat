@@ -68,6 +68,13 @@
     </div>
   </div>
 
+  <span
+    class="sorting-filter__prefix-label facets__label {% if should_use_select_on_mobile %} mobile:hidden {% endif %}"
+    id="sort-label-{{ section_id }}"
+  >
+    {{- 'actions.sort_by' | t -}}:
+  </span>
+
   <accordion-custom
     {% if filter_style == 'horizontal' %}
       data-disable-animation-on-desktop="true"
@@ -83,26 +90,16 @@
       on:toggle="/handleToggle"
     >
       <summary
-        class="facets__summary"
+        class="facets__summary sorting-filter__button"
         role="button"
         aria-expanded="false"
         aria-controls="sorting-options-{{ section_id }}"
         ref="summary"
       >
-        <span
-          class="facets__label"
-          id="sort-label-{{ section_id }}"
-        >
-          {{- 'actions.sort' | t -}}
-        </span>
-        <span
-          class="facets__status h6 desktop:hidden"
-        >
+        <span class="facets__status sorting-filter__status">
           {{- status -}}
         </span>
-        <span class="svg-wrapper icon-caret icon-animated">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
+        <span class="sorting-filter__dot" aria-hidden="true"></span>
       </summary>
       <floating-panel-component
         id="sorting-options-{{ section_id }}"
@@ -111,12 +108,27 @@
         aria-labelledby="sort-label-{{ section_id }}"
         ref="listbox"
       >
+        <div class="sorting-filter__options-header">
+          <span class="sorting-filter__options-label">
+            {{- 'actions.sort_by' | t -}}
+          </span>
+          <button
+            type="button"
+            class="sorting-filter__close"
+            on:click="sorting-filter-component/close"
+            aria-label="{{ 'actions.close' | t }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
         {% for option in results.sort_options %}
           <label
             for="sort-option-{{ option.value }}-{{ section_id }}"
           >
             <div
-              class="sorting-filter__option"
+              class="sorting-filter__option{% if option.value == sort_by %} sorting-filter__option--selected{% endif %}"
               role="option"
               aria-selected="{% if option.value == sort_by %}true{% else %}false{% endif %}"
               tabindex="{% if option.value == sort_by %}0{% else %}-1{% endif %}"
@@ -136,10 +148,8 @@
                 {% endif %}
                 aria-hidden="true"
               >
-              <span class="svg-wrapper icon-checkmark sorting-filter__checkmark">
-                {{- 'icon-checkmark.svg' | inline_asset_content -}}
-              </span>
               <span class="sorting-filter__label">{{ option.name }}</span>
+              <span class="sorting-filter__dot" aria-hidden="true"></span>
             </div>
           </label>
         {% endfor %}
@@ -205,9 +215,39 @@
   }
 
   .sorting-filter {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-xs);
+    margin-left: auto;
     @media screen and (min-width: 750px) {
       z-index: var(--facets-upper-z-index);
     }
+  }
+
+  .sorting-filter__prefix-label {
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
+    white-space: nowrap;
+  }
+
+  .sorting-filter__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-sm);
+    border-radius: var(--style-border-radius-pills);
+    box-shadow: inset 0 0 0 2px var(--color-foreground);
+    padding-block: var(--padding-lg);
+    padding-inline: var(--padding-lg);
+    color: var(--color-foreground);
+    min-width: 180px;
+  }
+
+  .sorting-filter__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    flex-shrink: 0;
   }
 
   .sorting-filter__options {
@@ -215,28 +255,62 @@
     right: 0;
     flex-direction: column;
     gap: var(--margin-3xs);
-    padding: calc(var(--drawer-padding) / 2);
-    color: var(--color-foreground);
+    padding: var(--padding-lg) !important;
+    color: #10069f;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    /* Overrides the shared popover styling in blocks/filters.liquid (which is
+       also used by other horizontal facet dropdowns), scoped to this class only. */
+    background-color: #d3ff33 !important;
+    border: none !important;
+    border-radius: var(--style-border-radius-xl, 28px) !important;
+    min-width: 260px;
 
     &::-webkit-scrollbar {
       display: none;
     }
   }
 
+  .sorting-filter__options-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-end: var(--padding-sm);
+  }
+
+  .sorting-filter__options-label {
+    color: rgb(16 6 159 / 0.55);
+  }
+
+  .sorting-filter__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #10069f;
+    color: #ffffff;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
   .sorting-filter__option {
     cursor: pointer;
-    display: grid;
-    grid-template-columns: var(--icon-size-sm) 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: var(--margin-2xs);
     min-width: 180px;
     padding: var(--padding-2xs) calc(var(--drawer-padding) / 2) var(--padding-2xs) var(--padding-2xs);
 
     &:hover {
       border-radius: calc(var(--style-border-radius-popover) / 2);
-      background-color: rgb(var(--color-foreground-rgb) / var(--opacity-8));
+      background-color: rgb(16 6 159 / var(--opacity-8));
     }
 
     &:focus {
@@ -246,18 +320,25 @@
 
   .sorting-filter__input {
     display: none;
-
-    &:checked + .sorting-filter__checkmark + .sorting-filter__label {
-      font-weight: 500;
-    }
   }
 
-  .sorting-filter__checkmark {
-    visibility: hidden;
+  .sorting-filter__option .sorting-filter__dot {
+    opacity: 0;
   }
 
-  *:checked ~ .sorting-filter__checkmark {
-    visibility: visible;
+  .sorting-filter__option--selected .sorting-filter__dot,
+  .sorting-filter__option:has(.sorting-filter__input:checked) .sorting-filter__dot {
+    opacity: 1;
+  }
+
+  .sorting-filter__option .sorting-filter__label {
+    font-weight: 700;
+  }
+
+  .sorting-filter__option--selected .sorting-filter__label,
+  .sorting-filter__option:has(.sorting-filter__input:checked) .sorting-filter__label {
+    font-weight: 400;
+    color: rgb(16 6 159 / 0.55);
   }
 
   .sorting-filter__label {
@@ -275,10 +356,10 @@
     padding-inline: 0;
     position: relative;
   }
-
+/* 
   .facets-mobile-wrapper .sorting-filter .facets__status {
     display: none;
-  }
+  } */
 
   .facets-mobile-wrapper:has(> :nth-child(2)) .sorting-filter .sorting-filter__options {
     left: 0;

@@ -492,7 +492,7 @@ class SortingFilterComponent extends Component {
 
       case 'Escape':
         event.preventDefault();
-        this.#closeDropdown();
+        this.close();
         break;
     }
   };
@@ -554,14 +554,14 @@ class SortingFilterComponent extends Component {
       input.click();
 
       // Close dropdown and return focus (handles tabIndex reset)
-      this.#closeDropdown();
+      this.close();
     }
   }
 
   /**
    * Closes the dropdown and returns focus to summary
    */
-  #closeDropdown() {
+  close() {
     const { details, summary } = this.refs;
     if (details instanceof HTMLDetailsElement) {
       // Reset focus to match the actual selected option
@@ -856,6 +856,39 @@ class FacetStatusComponent extends Component {
 
 if (!customElements.get('facet-status-component')) {
   customElements.define('facet-status-component', FacetStatusComponent);
+}
+
+/**
+ * Toggles the visibility of the desktop vertical filters panel and reflows the
+ * product grid. Both effects are driven by a single `filters-hidden` class on
+ * the closest `.collection-wrapper` ancestor (plain descendant-selector CSS),
+ * rather than a sibling-combinator selector reacting to a class on the panel
+ * itself - this way the effect doesn't depend on the panel and the grid being
+ * exact DOM siblings.
+ *
+ * @typedef {Object} FacetsToggleRefs
+ * @property {HTMLButtonElement} button - The toggle button
+ *
+ * @extends {Component<FacetsToggleRefs>}
+ */
+class FacetsToggleComponent extends Component {
+  requiredRefs = ['button'];
+
+  toggle() {
+    const wrapper = this.closest('.collection-wrapper');
+
+    if (!wrapper) return;
+
+    const isHidden = wrapper.classList.toggle('filters-hidden');
+    const isExpanded = !isHidden;
+
+    this.dataset.expanded = String(isExpanded);
+    this.refs.button.setAttribute('aria-expanded', String(isExpanded));
+  }
+}
+
+if (!customElements.get('facets-toggle-component')) {
+  customElements.define('facets-toggle-component', FacetsToggleComponent);
 }
 
 /**

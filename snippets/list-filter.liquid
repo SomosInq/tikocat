@@ -8,6 +8,7 @@
   @param {boolean} [autofocus] - Whether to autofocus the filter
   @param {boolean} [should_render_clear] - Whether to render the clear button
   @param {boolean} [show_swatch_label] - Whether to show the swatch label
+  @param {boolean} [show_option_count] - Whether to show the result count next to each option label
   @param {boolean} [in_drawer] - Whether the filter is in a drawer
 {%- enddoc -%}
 
@@ -46,7 +47,7 @@
     {% endif %}
   >
     <summary class="facets__summary">
-      <span class="facets__label">{{ filter.label }}</span>
+      <span class="facets__label h3">{{ filter.label }}</span>
 
       <div class="facets__status-wrapper">
         {% if is_swatch %}
@@ -368,6 +369,12 @@
                       </label>
                     </div>
                   {% else %}
+                    {% liquid
+                      assign option_count = blank
+                      if show_option_count
+                        assign option_count = value.count
+                      endif
+                    %}
                     {% render 'checkbox',
                       name: value.param_name,
                       value: value.value,
@@ -377,7 +384,8 @@
                       disabled: is_disabled,
                       inputRef: 'facetInputs[]',
                       events: 'on:pointerenter="/prefetchPage" on:pointerleave="/cancelPrefetchPage"',
-                      autofocus: autofocus
+                      autofocus: autofocus,
+                      count: option_count
                     %}
                   {% endif %}
                 {% endif %}
@@ -433,6 +441,10 @@
     font-weight: 500;
   }
 
+  .facets .checkbox {
+    --checkbox-border: 1px solid #10069f;
+  }
+
   .facets .checkbox .icon-checkmark {
     transition: border-color 0.2s ease, background-color 0.2s ease;
   }
@@ -452,6 +464,11 @@
 
   .facets .checkbox .checkbox__label-text {
     transition: color 0.2s ease, font-weight 0.2s ease;
+  }
+
+  .checkbox__label-count {
+    padding-inline-start: var(--padding-3xs);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-40-60));
   }
 
   /* Pill style */
@@ -638,11 +655,11 @@
     }
   }
 
-  .facets--horizontal .sorting-filter .facets__status {
+  /* .facets--horizontal .sorting-filter .facets__status {
     @media screen and (min-width: 750px) {
       display: none;
     }
-  }
+  } */
 
   .facets__status--swatches .swatch {
     width: calc(var(--variant-picker-swatch-width) / 1.5);

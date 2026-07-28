@@ -57,6 +57,7 @@
   {% liquid
     # Create an array from the list items to be used for different layout types
     assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+    assign carousel_id = 'CollectionListCarousel-' | append: section.id
   %}
 
   {% render 'resource-list',
@@ -64,6 +65,7 @@
     list_items_array: list_items_array,
     settings: section.settings,
     carousel_ref: 'collectionList',
+    carousel_id: carousel_id,
     slide_count: max_items,
     content_type: 'collections',
     test_id: 'collections-list-grid'
@@ -610,16 +612,16 @@
           "type": "group",
           "name": "t:names.header",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "space-between",
             "vertical_alignment": "center",
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
-            "width": "fit",
+            "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fit",
+            "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
             "custom_height": 100,
@@ -658,9 +660,13 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
+            },
+            "carousel_buttons_aB3xY9": {
+              "type": "carousel-buttons",
+              "name": "t:names.carousel_buttons"
             }
           },
-          "block_order": ["text_nQEaGV"]
+          "block_order": ["text_nQEaGV", "carousel_buttons_aB3xY9"]
         },
         "static-collection-card": {
           "type": "_collection-card",

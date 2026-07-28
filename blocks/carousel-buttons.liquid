@@ -1,0 +1,165 @@
+
+
+{%- doc -%}
+  Renders prev/next buttons that control this section's carousel from outside its
+  own DOM subtree (e.g. placed inline in a header `group` block next to the title).
+
+  Targets the carousel's `<slideshow-component>` by a deterministic id
+  (`CollectionListCarousel-{{ section.id }}`) using the theme's `#id/method`
+  declarative event targeting (see assets/component.js), rather than the
+  ancestor-relative `on:click="/previous"` pattern used inside the carousel itself.
+
+  Only renders when the section's layout is set to Carousel.
+{%- enddoc -%}
+
+{% liquid
+  assign carousel_id = 'CollectionListCarousel-' | append: section.id
+  assign icon_style = block.settings.icon_style | default: 'arrow'
+  assign icon_shape = block.settings.icon_shape | default: 'circle'
+
+  assign icon_name = 'arrow'
+  if icon_style contains 'chevron'
+    assign icon_name = 'caret'
+  endif
+%}
+
+{% if section.settings.layout_type == 'carousel' %}
+  <carousel-buttons class="carousel-buttons" target="{{ carousel_id }}" {{ block.shopify_attributes }}>
+    <div class="carousel-buttons__arrows">
+      <button
+        type="button"
+        class="
+          slideshow-control slideshow-control--previous
+          {% if icon_shape != 'none' %}slideshow-control--shape-{{ icon_shape }}{% endif %}
+          slideshow-control--style-{{ icon_style }}
+          button button-unstyled button-unstyled--transparent
+          flip-x
+        "
+        aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+        on:click="#{{ carousel_id }}/previous"
+        ref="previous"
+      >
+        <span class="svg-wrapper icon-{{ icon_name }}">
+          {%- if icon_name == 'caret' -%}
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          {%- else -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          {%- endif -%}
+        </span>
+      </button>
+      <button
+        type="button"
+        class="
+          slideshow-control slideshow-control--next
+          {% if icon_shape != 'none' %}slideshow-control--shape-{{ icon_shape }}{% endif %}
+          slideshow-control--style-{{ icon_style }}
+          button button-unstyled button-unstyled--transparent
+        "
+        aria-label="{{ 'accessibility.slideshow_next' | t }}"
+        on:click="#{{ carousel_id }}/next"
+        ref="next"
+      >
+        <span class="svg-wrapper icon-{{ icon_name }}">
+          {%- if icon_name == 'caret' -%}
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          {%- else -%}
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          {%- endif -%}
+        </span>
+      </button>
+    </div>
+  </carousel-buttons>
+{% elsif request.design_mode %}
+  <div class="carousel-buttons carousel-buttons--placeholder" {{ block.shopify_attributes }}>
+    {{ 'content.carousel_buttons_requires_carousel_layout' | t }}
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .carousel-buttons__arrows {
+    display: flex;
+    gap: var(--gap-2xs);
+  }
+
+  .carousel-buttons__arrows .slideshow-control {
+    position: relative;
+    opacity: 1;
+    min-height: var(--minimum-touch-target);
+    min-width: var(--minimum-touch-target);
+    padding: 0 var(--padding-xs);
+  }
+
+  .carousel-buttons__arrows .slideshow-control[disabled] {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .carousel-buttons--placeholder {
+    font-size: var(--font-size--xs, 0.75rem);
+    opacity: 0.6;
+    font-style: italic;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.carousel_buttons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.carousel_buttons_info"
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "t:options.arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "t:options.chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "t:options.arrows_large"
+        },
+        {
+          "value": "chevron_large",
+          "label": "t:options.chevron_large"
+        }
+      ],
+      "default": "arrow"
+    },
+    {
+      "type": "select",
+      "id": "icon_shape",
+      "label": "t:settings.icon_background",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "circle",
+          "label": "t:options.circle"
+        },
+        {
+          "value": "square",
+          "label": "t:options.square"
+        }
+      ],
+      "default": "circle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.carousel_buttons",
+      "category": "t:categories.collection"
+    }
+  ]
+}
+{% endschema %}

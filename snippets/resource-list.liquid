@@ -8,6 +8,7 @@
   @param {object} list_items_array - Array of list item HTML strings for complex layouts
   @param {object} settings - Section settings object containing layout configuration
   @param {string} [carousel_ref] - Base reference name for carousel components (default: 'resourceListCarousel')
+  @param {string} [carousel_id] - Optional HTML id to set on the primary carousel's slideshow-component (layout_type == 'carousel' only)
   @param {number} slide_count - Number of slides for carousel layouts
   @param {string} content_type - Type of content: 'products' | 'collections' | 'articles'
   @param {string} [test_id] - Data test ID for the main resource list
@@ -121,6 +122,7 @@
     {% when 'carousel' %}
       {% render 'resource-list-carousel',
         ref: carousel_ref,
+        id: carousel_id,
         slides: list_items_array,
         slide_count: slide_count,
         settings: settings,

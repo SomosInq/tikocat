@@ -21,6 +21,12 @@
       #shopify-section-{{ section.id }} slideshow-slide {
         min-height: {{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}vw;
       }
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} slideshow-slides,
+        #shopify-section-{{ section.id }} slideshow-slide {
+          min-height: 65vh;
+        }
+      }
     {% endstyle %}
   {% endif %}
 

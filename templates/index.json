@@ -497,9 +497,9 @@
           "type": "group",
           "name": "t:names.header",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "space-between",
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
@@ -563,10 +563,17 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "carousel_buttons_QtQdja": {
+              "type": "carousel-buttons",
+              "name": "t:names.carousel_buttons",
+              "settings": {},
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_LdJ8bd"
+            "text_LdJ8bd",
+            "carousel_buttons_QtQdja"
           ]
         },
         "static-collection-card": {
@@ -590,6 +597,7 @@
               "type": "collection-title",
               "name": "t:names.collection_title",
               "settings": {
+                "show_arrow": true,
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -655,7 +663,7 @@
         "bento_gap": 8,
         "rows_gap": 8,
         "max_collections": 4,
-        "icons_style": "chevron_large",
+        "icons_style": "none",
         "icons_shape": "circle",
         "section_width": "page-width",
         "gap": 12,

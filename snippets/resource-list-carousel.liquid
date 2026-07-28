@@ -2,6 +2,7 @@
   Renders a carousel of predictive search results cards
 
   @param {string} ref - The ref of the slideshow
+  @param {string} [id] - Optional HTML id to apply to the slideshow-component (for #id/method external targeting)
   @param {object} slides - An array of HTML for the slides to display in the carousel
   @param {number} slide_count - The number of slides to display in the carousel
   @param {object} settings - The block or sections settings from the parent block/section.
@@ -49,6 +50,7 @@
 >
   {% render 'slideshow',
     ref: slideshow_ref,
+    id: id,
     class: 'resource-list__carousel',
     slides: slides,
     slideshow_arrows: slideshow_arrows,

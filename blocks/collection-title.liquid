@@ -3,11 +3,42 @@
 {% if closest.collection == blank %}
   {% assign text = 'placeholders.collection_title' | t %}
   {% assign collection_title = '<p>' | append: text | append: '</p>' %}
-  {% render 'text', fallback_text: collection_title, block: block %}
 {% elsif closest.collection != blank %}
   {% assign collection_title = '<p>' | append: closest.collection.title | append: '</p>' %}
-  {% render 'text', fallback_text: collection_title, block: block %}
 {% endif %}
+
+<div class="collection-title-block{% if block.settings.show_arrow %} collection-title-block--with-arrow{% endif %}">
+  {% render 'text', fallback_text: collection_title, block: block %}
+
+  {% if block.settings.show_arrow %}
+    <span class="collection-title-block__arrow svg-wrapper icon-arrow" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13" fill="none" class="arrow">
+        <path d="M0.713867 6.26934H14.9996M9.44406 11.825L14.9996 6.26934L9.44406 0.713867" stroke="#171717" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .collection-title-block--with-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--gap-xs, 8px);
+    padding: 0 24px;
+  }
+
+  .collection-title-block__arrow {
+    flex-shrink: 0;
+    width: var(--icon-size-xs);
+  }
+  @media screen and (max-width: 1199px) {
+    .collection-title-block--with-arrow {
+      padding: 0 12px;
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -21,6 +52,13 @@
     {
       "type": "header",
       "content": "t:content.layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "t:settings.show_arrow",
+      "default": false,
+      "info": "t:info.collection_title_arrow_width"
     },
     {
       "type": "select",

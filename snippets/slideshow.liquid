@@ -3,6 +3,7 @@
   Condiional <slideshow-arrows> component and slideshow controls.
 
   @param {object[]} slides - the slides of the slideshow
+  @param {string} [id] - optional HTML id attribute for the slideshow-component, used for #id/method targeting from outside the component
   @param {string} [ref] - the ref of the slideshow component
   @param {string} [class] - HTML class attribute of the slideshow component
   @param {string} [controls] - the controls of the slideshow component
@@ -30,6 +31,9 @@
 {% assign style = style | strip %}
 
 <slideshow-component
+  {% if id != blank %}
+    id="{{ id }}"
+  {% endif %}
   {% if ref != blank %}
     ref="{{ ref }}"
   {% endif %}

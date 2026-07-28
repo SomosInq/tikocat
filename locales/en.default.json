@@ -155,6 +155,7 @@
     "account_orders": "Orders",
     "account_profile": "Profile",
     "blog_details_separator": "|",
+    "carousel_buttons_requires_carousel_layout": "Carousel buttons (visible only when Layout is set to Carousel)",
     "cart_estimated_total": "Estimated total",
     "cart_title": "Cart",
     "cart_subtotal": "Subtotal",

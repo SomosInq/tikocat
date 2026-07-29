@@ -93,6 +93,7 @@
         # Create an array from the list items to be used in the carousel
         assign slide_content = list_items | strip
         assign slides = slide_content | split: '<!--@list/split-->'
+        assign carousel_id = 'ProductRecommendationsCarousel-' | append: section.id
 
         if products != blank and products.size > 0
           assign has_recommendations = 'true'
@@ -123,6 +124,7 @@
           {% when 'carousel' %}
             {% render 'resource-list-carousel',
               ref: 'resourceListCarousel',
+              id: carousel_id,
               slides: slides,
               slide_count: recommendations.products.size,
               settings: section.settings

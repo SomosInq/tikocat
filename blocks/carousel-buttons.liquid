@@ -5,15 +5,27 @@
   own DOM subtree (e.g. placed inline in a header `group` block next to the title).
 
   Targets the carousel's `<slideshow-component>` by a deterministic id
-  (`CollectionListCarousel-{{ section.id }}`) using the theme's `#id/method`
+  (e.g. `CollectionListCarousel-{{ section.id }}`) using the theme's `#id/method`
   declarative event targeting (see assets/component.js), rather than the
   ancestor-relative `on:click="/previous"` pattern used inside the carousel itself.
+
+  The id prefix depends on the section this block is placed in, since each
+  carousel-capable section is responsible for assigning a matching `id` to its
+  own `slideshow-component` (see collection-list.liquid, product-recommendations.liquid).
 
   Only renders when the section's layout is set to Carousel.
 {%- enddoc -%}
 
 {% liquid
-  assign carousel_id = 'CollectionListCarousel-' | append: section.id
+
+    if section.id contains 'collection_list'
+      assign carousel_prefix = 'CollectionListCarousel-'
+    elsif  section.id contains 'product_recommendations'
+      assign carousel_prefix = 'ProductRecommendationsCarousel-'
+    else
+      assign carousel_prefix = 'Carousel-'
+    endif
+  assign carousel_id = carousel_prefix | append: section.id
   assign icon_style = block.settings.icon_style | default: 'arrow'
   assign icon_shape = block.settings.icon_shape | default: 'circle'
 

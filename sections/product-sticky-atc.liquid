@@ -1,0 +1,183 @@
+<div class="sticky-atc-wrapper">
+  <div class="sticky-atc-card">
+    <div class="sticky-atc-row">
+      <div class="sticky-atc-product">
+        <img src="{{ product.featured_image | image_url: width: 58 }}" width="58" height="58" alt="">
+        <div>
+          <div class="sticky-atc-title">{{ product.title }}</div>
+          <div class="sticky-atc-type">{{ product.metafields.custom.product_category }}</div>
+        </div>
+      </div>
+      <div class="sticky-atc-actions">
+        <div>
+          {% if product.compare_at_price %}<span class="sticky-atc-compare-price">{{ product.compare_at_price | money }}</span>{% endif %}
+          <span class="sticky-atc-price">{{ product.price | money }}</span>
+        </div>
+        <span id="sticky-addtocart-btn" onclick="handleAddToCart()">Add to Cart</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const mainSection = document.querySelector('.product-information__grid');
+    const stickyBar = document.getElementById('shopify-section-{{ section.id }}');
+    
+    if (!mainSection || !stickyBar) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyBar.classList.remove('is-visible');
+        } else {
+          stickyBar.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '0px'
+    });
+
+    observer.observe(mainSection);
+  })();
+
+  function handleAddToCart() {
+    const addToCartButton = document.querySelector('.product-information__grid [ref="addToCartButton"]');
+    if (addToCartButton && !addToCartButton.disabled) {
+      addToCartButton.click();
+    }
+  }
+</script>
+{% style %}
+  #shopify-section-{{ section.id }}{
+    position: sticky;
+    bottom: -150px;
+    padding: 24px 0;
+    width: 100%;
+    z-index: 91;
+    transition: all 0.3s ease-in-out;
+  }
+  #shopify-section-{{- section.id -}}.is-visible{
+    bottom: 0;
+  }
+
+  .sticky-atc-wrapper {
+    max-width: 888px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sticky-atc-card {
+    border-radius: 24px;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    box-shadow: 0 0 56px 0 rgba(0, 0, 0, 0.20);
+  }
+
+  .sticky-atc-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sticky-atc-product {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sticky-atc-product img{
+    border-radius: 100%;
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+  }
+
+  .sticky-atc-title {
+    color: var(--Eletric-Blue, #10069F);
+    font-size: 16.5px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .sticky-atc-type {
+    color: var(--Black, #000);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .sticky-atc-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sticky-atc-compare-price {
+    color: #1A1A1A4D;
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+
+  .sticky-atc-price {
+    color: #161616;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #sticky-addtocart-btn {
+    font-size: 14px;
+    line-height: normal;
+    border-radius: 60px;
+    padding: 16px 24px;
+    color: #10069F;
+    background-color: #F2F2FF;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sticky-atc-card {
+      border-radius: 100px;
+    }
+
+    .sticky-atc-row {
+      flex-direction: row;
+    }
+
+    .sticky-atc-price {
+      font-size: 24px;
+    }
+
+    #sticky-addtocart-btn {
+      font-size: 16.5px;
+      padding: 16px 26px;
+      min-width: 219px;
+    }
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "Sticky Add-to-Cart",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    
+  ],
+  "presets": [
+    {
+      "name": "Sticky Add-to-Cart"
+    }
+  ]
+}
+{% endschema %}

@@ -71,7 +71,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Grooming Essentials</p>",
+                "text": "<p>{{ closest.product.metafields.custom.product_category.value }}</p>",
                 "line_through": false,
                 "opacity": 100,
                 "width": "fit-content",
@@ -2314,6 +2314,11 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "product_sticky_atc_wiQqBV": {
+      "type": "product-sticky-atc",
+      "name": "Sticky Add-to-Cart",
+      "settings": {}
     }
   },
   "order": [
@@ -2327,6 +2332,7 @@
     "section_FnmWbM",
     "section_PEGRHC",
     "product_recommendations_qggXJq",
-    "17853051371451bcb6"
+    "17853051371451bcb6",
+    "product_sticky_atc_wiQqBV"
   ]
 }

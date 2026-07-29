@@ -1289,6 +1289,7 @@ button.shopify-payment-button__button--unbranded {
   --text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--gap-xs);
   text-decoration: none;
   text-align: var(--text-align);

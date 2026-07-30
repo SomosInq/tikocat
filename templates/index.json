@@ -930,9 +930,9 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
-                "type_preset": "h1",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -1104,7 +1104,7 @@
               },
               "blocks": {}
             },
-            "text_tm8hwD": {
+            "text_WLGEEY": {
               "type": "text",
               "settings": {
                 "text": "<h3>For Cats</h3>",
@@ -1113,9 +1113,9 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
-                "type_preset": "h1",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -1212,7 +1212,7 @@
           },
           "block_order": [
             "text_gM7LcP",
-            "text_tm8hwD",
+            "text_WLGEEY",
             "group_6mPjqi"
           ]
         }

@@ -110,6 +110,16 @@
   assign sizes_mobile = media_width_mobile
   assign mobile_widths = '416, 600, 800, 1200, 1600'
 
+  # Adapt section height to the first image's aspect ratio, scaled to the width it actually renders at (100vw, or 50vw when two media are shown side by side).
+  assign adapt_image_height = false
+  if section.settings.section_height == 'adapt_image' and section.settings.image_1 != blank
+    assign adapt_image_height = true
+    assign media_width_desktop_number = media_width_desktop | remove: 'vw' | times: 1.0
+    assign media_width_mobile_number = media_width_mobile | remove: 'vw' | times: 1.0
+    assign hero_adapt_height_desktop_vw = media_width_desktop_number | divided_by: section.settings.image_1.aspect_ratio
+    assign hero_adapt_height_mobile_vw = media_width_mobile_number | divided_by: section.settings.image_1.aspect_ratio
+  endif
+
   assign fetch_priority = 'auto'
 
   if section.index == 1
@@ -373,6 +383,20 @@
   {% endif %}
 {% endcapture %}
 
+{% if adapt_image_height %}
+  {% style %}
+    #Hero-{{ section.id }} {
+      --hero-min-height: {{ hero_adapt_height_desktop_vw }}vw;
+    }
+
+    @media screen and (max-width: 749px) {
+      #Hero-{{ section.id }} {
+        --hero-min-height: {{ hero_adapt_height_mobile_vw }}vw;
+      }
+    }
+  {% endstyle %}
+{% endif %}
+
 <div
   id="Hero-{{ section.id }}"
   class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}"
@@ -385,6 +409,10 @@
       --hero-min-height: {{ section.settings.section_height_custom }}svh;
     {% elsif section.settings.section_height == "full-screen" %}
        --hero-min-height: 100svh;
+    {% elsif section.settings.section_height == 'adapt_image' %}
+      {% unless adapt_image_height %}
+        --hero-min-height: var(--section-height-medium);
+      {% endunless %}
     {% else %}
       --hero-min-height: var(--section-height-{{ section.settings.section_height }});
     {% endif %}
@@ -1060,6 +1088,10 @@
         {
           "value": "auto",
           "label": "t:options.auto"
+        },
+        {
+          "value": "adapt_image",
+          "label": "t:options.adapt_to_image"
         },
         {
           "value": "small",

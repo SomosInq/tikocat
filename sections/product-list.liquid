@@ -61,12 +61,14 @@
   {% liquid
     # Create an array from the list items to be used for different layout types
     assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+    assign carousel_id = 'ProductListCarousel-' | append: section.id
   %}
 
   {% render 'resource-list',
     list_items: list_items,
     list_items_array: list_items_array,
     settings: section.settings,
+    carousel_id: carousel_id,
     slide_count: max_items,
     content_type: 'products',
     test_id: 'resource-list-grid'

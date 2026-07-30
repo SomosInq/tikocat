@@ -94,8 +94,8 @@
         "padding-block-end": 80
       }
     },
-    "product_list_C4HNG3": {
-      "type": "product-list",
+    "related_products_n6XWEX": {
+      "type": "related-products",
       "blocks": {
         "static-header": {
           "type": "_product-list-content",
@@ -131,11 +131,11 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_list_text_JnEQHU": {
+            "product_list_text_6zdHCa": {
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h3>Related products</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -157,24 +157,19 @@
               },
               "blocks": {}
             },
-            "product_list_button_DEk8Pq": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
+            "carousel_buttons_j7PACW": {
+              "type": "carousel-buttons",
+              "name": "t:names.carousel_buttons",
               "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "icon_style": "chevron",
+                "icon_shape": "circle"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "product_list_text_JnEQHU",
-            "product_list_button_DEk8Pq"
+            "product_list_text_6zdHCa",
+            "carousel_buttons_j7PACW"
           ]
         },
         "static-product-card": {
@@ -195,7 +190,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_card_gallery_PtiRAm": {
+            "product_card_gallery_JCewPi": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
@@ -211,7 +206,7 @@
               },
               "blocks": {}
             },
-            "product_title_Qqd9QN": {
+            "product_title_tmVaRb": {
               "type": "product-title",
               "name": "t:names.product_title",
               "settings": {
@@ -236,7 +231,7 @@
               },
               "blocks": {}
             },
-            "price_FydWDa": {
+            "price_gL7kfV": {
               "type": "price",
               "name": "t:names.product_price",
               "settings": {
@@ -261,24 +256,23 @@
             }
           },
           "block_order": [
-            "product_card_gallery_PtiRAm",
-            "product_title_Qqd9QN",
-            "price_FydWDa"
+            "product_card_gallery_JCewPi",
+            "product_title_tmVaRb",
+            "price_gL7kfV"
           ]
         }
       },
-      "name": "t:names.products_carousel",
+      "name": "t:names.related_products",
       "settings": {
-        "collection": "grooming-essentials",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
-        "max_products": 6,
+        "max_products": 8,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 8,
         "rows_gap": 24,
-        "icons_style": "arrow",
+        "icons_style": "none",
         "icons_shape": "circle",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
@@ -291,6 +285,6 @@
   },
   "order": [
     "section",
-    "product_list_C4HNG3"
+    "related_products_n6XWEX"
   ]
 }

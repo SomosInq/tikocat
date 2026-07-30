@@ -22,8 +22,10 @@
       assign carousel_prefix = 'CollectionListCarousel-'
     elsif  section.id contains 'product_recommendations'
       assign carousel_prefix = 'ProductRecommendationsCarousel-'
-     elsif  section.id contains 'product_list'
+    elsif  section.id contains 'product_list'
       assign carousel_prefix = 'ProductListCarousel-'
+    elsif  section.id contains 'related_products'
+      assign carousel_prefix = 'RelatedProductsCarousel-'
     else
       assign carousel_prefix = 'Carousel-'
     endif

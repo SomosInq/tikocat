@@ -20,6 +20,19 @@
   >
     {% content_for 'blocks' %}
 
+    {%- if section.settings.enable_tag_filter and blog.all_tags.size > 0 -%}
+      <ul class="blog-category-filter" role="list">
+        <li class="blog-category-filter__item{% unless current_tags %} blog-category-filter__item--active{% endunless %}">
+          <a href="{{ blog.url }}">{{ 'actions.view_all' | t }}</a>
+        </li>
+        {%- for tag in blog.all_tags -%}
+          <li class="blog-category-filter__item{% if current_tags contains tag %} blog-category-filter__item--active{% endif %}">
+            {{ tag | link_to_tag: tag }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
     {%- paginate blog.articles by 12 -%}
       <span ref="viewMorePrevious"></span>
       <div
@@ -130,6 +143,57 @@
     border: none;
     padding: 0;
   }
+
+  /**
+   * Category filter pills, generated from article tags. Visually matches the
+   * theme's button/button-secondary components without reusing those classes
+   * directly, since the tag links are rendered via the `link_to_tag` filter
+   * and can't take a class attribute of their own.
+   */
+  .blog-category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-xs);
+    list-style: none;
+    margin: 0 0 var(--rows-gap);
+    padding: 0;
+  }
+
+  .blog-category-filter__item a {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+    font-family: var(--button-font-family-secondary);
+    text-transform: var(--button-text-case-secondary);
+    border-radius: var(--style-border-radius-buttons-secondary);
+    padding-block: var(--button-padding-block);
+    padding-inline: var(--button-padding-inline);
+    color: var(--color-secondary-button-text);
+    background-color: var(--color-secondary-button-background);
+    box-shadow: inset 0 0 0 var(--style-border-width-secondary) var(--color-secondary-button-border);
+    transition: color var(--animation-speed) var(--animation-easing),
+      box-shadow var(--animation-speed) var(--animation-easing),
+      background-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .blog-category-filter__item a:hover {
+    color: var(--color-secondary-button-hover-text);
+    background-color: var(--color-secondary-button-hover-background);
+    box-shadow: inset 0 0 0 var(--style-border-width-secondary) var(--color-secondary-button-hover-border);
+  }
+
+  .blog-category-filter__item--active a {
+    color: var(--color-primary-button-text);
+    background-color: var(--color-primary-button-background);
+    box-shadow: inset 0 0 0 var(--style-border-width-primary) var(--color-primary-button-border);
+  }
+
+  .blog-category-filter__item--active a:hover {
+    color: var(--color-primary-button-hover-text);
+    background-color: var(--color-primary-button-hover-background);
+    box-shadow: inset 0 0 0 var(--style-border-width-primary) var(--color-primary-button-hover-border);
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -176,6 +240,17 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_tag_filter",
+      "label": "t:settings.enable_filtering",
+      "info": "Categories are generated automatically from your blog articles' tags.",
+      "default": true
     },
     {
       "type": "header",

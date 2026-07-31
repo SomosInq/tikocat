@@ -20,7 +20,7 @@
     >
       {% render 'header-drawer',
         class: 'header__drawer--mobile',
-        linklist: block_settings.menu,
+        linklist: block_settings.mobile_menu,
         data_header_drawer_type: 'mobile-drawer'
       %}
     </div>
@@ -638,6 +638,11 @@
       "id": "menu",
       "label": "t:settings.menu",
       "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_menu",
+      "label": "Mobile Menu"
     },
     {
       "type": "color_scheme",

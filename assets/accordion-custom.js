@@ -32,6 +32,10 @@ class AccordionCustom extends HTMLElement {
     return this.dataset.closeWithEscape === 'true';
   }
 
+  get #closeSiblings() {
+    return this.dataset.closeSiblings === 'true';
+  }
+
   #controller = new AbortController();
 
   connectedCallback() {
@@ -41,6 +45,7 @@ class AccordionCustom extends HTMLElement {
 
     this.addEventListener('keydown', this.#handleKeyDown, { signal });
     this.summary.addEventListener('click', this.handleClick, { signal });
+    this.details.addEventListener('toggle', this.#handleToggle, { signal });
     mediaQueryLarge.addEventListener('change', this.#handleMediaQueryChange, { signal });
   }
 
@@ -72,6 +77,23 @@ class AccordionCustom extends HTMLElement {
    */
   #handleMediaQueryChange = () => {
     this.#setDefaultOpenState();
+  };
+
+  /**
+   * Closes sibling accordions in the same list when this one opens,
+   * so only one group in that list is expanded at a time.
+   */
+  #handleToggle = () => {
+    if (!this.#closeSiblings || !this.details.open) return;
+
+    const list = this.closest('ul');
+    if (!list) return;
+
+    list.querySelectorAll(':scope > li > accordion-custom').forEach((sibling) => {
+      if (sibling !== this && sibling instanceof AccordionCustom && sibling.details.open) {
+        sibling.details.open = false;
+      }
+    });
   };
 
   /**

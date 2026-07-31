@@ -855,6 +855,13 @@
     },
     {
       "type": "checkbox",
+      "id": "drawer_accordion_close_others",
+      "label": "t:settings.close_other_groups",
+      "default": false,
+      "visible_if": "{{ block.settings.drawer_accordion == true }}"
+    },
+    {
+      "type": "checkbox",
       "id": "drawer_dividers",
       "label": "t:settings.dividers",
       "default": false

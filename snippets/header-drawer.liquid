@@ -118,7 +118,12 @@
                       assign accordion_state = 'open-by-default-on-mobile'
                     endif
                   %}
-                  <accordion-custom {{ accordion_state }}>
+                  <accordion-custom
+                    {{ accordion_state }}
+                    {% if block_settings.drawer_accordion_close_others %}
+                      data-close-siblings="true"
+                    {% endif %}
+                  >
                     <details
                       id="Details-menu-drawer-{{ link.handle }}"
                     >
@@ -364,7 +369,12 @@
                                   {%- comment -%}
                                     Accordion for links with children, in menus with 3 levels of links
                                   {%- endcomment -%}
-                                  <accordion-custom {{ accordion_state }}>
+                                  <accordion-custom
+                                    {{ accordion_state }}
+                                    {% if block_settings.drawer_accordion_close_others %}
+                                      data-close-siblings="true"
+                                    {% endif %}
+                                  >
                                     <details
                                       id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}"
                                     >

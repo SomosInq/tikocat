@@ -197,6 +197,43 @@
     }
   }
 
+  .menu-list__link-title {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    transition: background-color var(--animation-speed) var(--animation-easing),
+      color var(--animation-speed) var(--animation-easing);
+  }
+
+  .menu-list__list-item:not([slot='more']):nth-child(4n+1)
+    .menu-list__link:is(:hover, :focus-visible)
+    .menu-list__link-title {
+    background-color: #D3FF33;
+    color: #000000;
+  }
+
+  .menu-list__list-item:not([slot='more']):nth-child(4n+2)
+    .menu-list__link:is(:hover, :focus-visible)
+    .menu-list__link-title {
+    background-color: #10069F;
+    color: #FFFFFF;
+  }
+
+  .menu-list__list-item:not([slot='more']):nth-child(4n+3)
+    .menu-list__link:is(:hover, :focus-visible)
+    .menu-list__link-title {
+    background-color: #DBB8FF;
+    color: #171717;
+  }
+
+  .menu-list__list-item:not([slot='more']):nth-child(4n+4)
+    .menu-list__link:is(:hover, :focus-visible)
+    .menu-list__link-title {
+    background-color: #AEE6ED;
+    color: #171717;
+  }
+
   /*
       High specificity selectors to subdue non-hovered links without javascript.
       If the need for js-generated `hovered` and `focused` classes arises for another reason we can simplify these.

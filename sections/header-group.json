@@ -258,6 +258,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -467,6 +468,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -676,6 +678,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -885,6 +888,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -919,9 +923,9 @@
                   "grinder-accessories",
                   "clipper-combs"
                 ],
-                "card_image": "shopify://shop_images/nav-banner-03.webp_5.png",
-                "card_heading": "Finally. Pet Care That Gets It.",
-                "inline": "Everything Your Pack Needs. Right Here.",
+                "card_image": "shopify://shop_images/nav-banner-03.webp_7.png",
+                "card_heading": "One Brand. Every Moment.",
+                "inline": "Good Things Come to Pets Who Have You.",
                 "card_link": "shopify://collections/accessories"
               },
               "blocks": {
@@ -1094,6 +1098,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -1327,6 +1332,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,
@@ -1536,6 +1542,7 @@
                           "type": "swatches",
                           "name": "t:names.swatches",
                           "settings": {
+                            "show_swatch_label": true,
                             "product_swatches_alignment": "flex-start",
                             "product_swatches_alignment_mobile": "flex-start",
                             "hide_padding": false,

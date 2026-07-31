@@ -1687,6 +1687,7 @@
             "color_scheme_navigation_bar": "",
             "drawer_accordion": true,
             "drawer_accordion_expand_first": true,
+            "drawer_accordion_close_others": true,
             "drawer_dividers": true
           },
           "blocks": {}

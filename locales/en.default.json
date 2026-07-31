@@ -126,7 +126,9 @@
     "email_signup": {
       "label": "Email",
       "placeholder": "Email address",
-      "success": "Thanks for subscribing!"
+      "success": "Thanks for subscribing!",
+      "copy_code": "Copy discount code",
+      "code_copied": "Code copied!"
     },
     "filter": "Filter",
     "load_video": "Load video: {{ description }}",

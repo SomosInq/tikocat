@@ -214,6 +214,15 @@
         });
       }
 
+      // The page reloads after a successful newsletter signup, and the
+      // submitted block re-renders its success state inline. Reopen the
+      // popup immediately in that case so the visitor sees it, regardless
+      // of the auto-open/delay/reopen settings below.
+      if (this.querySelector('.email-signup__success')) {
+        this.open();
+        return;
+      }
+
       if (this.dataset.autoOpen === 'true' && this.shouldAutoOpen()) {
         const delay = (parseInt(this.dataset.autoOpenDelay, 10) || 0) * 1000;
         setTimeout(() => this.open(), delay);

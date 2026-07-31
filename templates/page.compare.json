@@ -17,6 +17,8 @@
           "name": "Title",
           "settings": {
             "text": "<h1>{{ closest.page.title }}</h1>",
+            "line_through": false,
+            "opacity": 100,
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -28,6 +30,8 @@
             "case": "none",
             "wrap": "pretty",
             "color": "",
+            "show_custom_color": false,
+            "custom_color": "#000000",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -48,6 +52,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -55,9 +60,68 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "product-compare": {
+      "type": "product-compare",
+      "blocks": {
+        "product_compare_category_hLLWM9": {
+          "type": "category",
+          "name": "Category",
+          "settings": {
+            "title": "Grooming essentials",
+            "product_list": [
+              "clippers-kit",
+              "clippers-kit-1"
+            ]
+          }
+        },
+        "product_compare_category_7W3jY3": {
+          "type": "category",
+          "name": "Category",
+          "settings": {
+            "title": "Feeding & hydration",
+            "product_list": []
+          }
+        },
+        "product_compare_category_HLTfpr": {
+          "type": "category",
+          "name": "Category",
+          "settings": {
+            "title": "Comfort & lifestyle",
+            "product_list": []
+          }
+        },
+        "product_compare_category_43c3W8": {
+          "type": "category",
+          "name": "Category",
+          "settings": {
+            "title": "Cleaning & mess control",
+            "product_list": []
+          }
+        }
+      },
+      "block_order": [
+        "product_compare_category_hLLWM9",
+        "product_compare_category_7W3jY3",
+        "product_compare_category_HLTfpr",
+        "product_compare_category_43c3W8"
+      ],
+      "settings": {
+        "heading": "Compare products",
+        "category_placeholder": "Select a category",
+        "product_placeholder": "Select a product",
+        "empty_state_text": "Choose two products to compare.",
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "product-compare"
   ]
 }

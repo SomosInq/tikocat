@@ -18,10 +18,20 @@
     assign vertical_alignment = settings.vertical_alignment_flex_direction_column
   endunless
 
+  assign horizontal_alignment_mobile = horizontal_alignment
   assign vertical_alignment_mobile = vertical_alignment
 
   if settings.vertical_on_mobile and vertical_alignment == 'last baseline'
     assign vertical_alignment_mobile = 'flex-end'
+  endif
+
+  # Explicit mobile alignment overrides (blank means "same as desktop", the default).
+  if settings.horizontal_alignment_mobile != blank
+    assign horizontal_alignment_mobile = settings.horizontal_alignment_mobile
+  endif
+
+  if settings.vertical_alignment_mobile != blank
+    assign vertical_alignment_mobile = settings.vertical_alignment_mobile
   endif
 -%}
 
@@ -30,4 +40,4 @@
 {% render 'gap-style', value: settings.gap %}
 
 --horizontal-alignment: {{ horizontal_alignment }}; --vertical-alignment: {{ vertical_alignment }};
---vertical-alignment-mobile: {{ vertical_alignment_mobile }};
+--horizontal-alignment-mobile: {{ horizontal_alignment_mobile }}; --vertical-alignment-mobile: {{ vertical_alignment_mobile }};

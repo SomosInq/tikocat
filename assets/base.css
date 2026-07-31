@@ -2337,12 +2337,14 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 @media screen and (max-width: 749px) {
   .mobile-column {
     flex-flow: column nowrap;
-    align-items: var(--horizontal-alignment);
+    align-items: var(--horizontal-alignment-mobile, var(--horizontal-alignment));
     justify-content: var(--vertical-alignment-mobile);
   }
 
   .layout-panel-flex--row:not(.mobile-column) {
     flex-wrap: var(--flex-wrap-mobile);
+    justify-content: var(--horizontal-alignment-mobile, var(--horizontal-alignment));
+    align-items: var(--vertical-alignment-mobile);
 
     > .menu {
       flex: 1 1 min-content;
@@ -2359,6 +2361,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     > .button {
       flex: 0 0 fit-content;
     }
+  }
+
+  .layout-panel-flex--column {
+    align-items: var(--horizontal-alignment-mobile, var(--horizontal-alignment));
+    justify-content: var(--vertical-alignment-mobile);
   }
 }
 

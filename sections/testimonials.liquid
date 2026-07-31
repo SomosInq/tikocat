@@ -21,6 +21,8 @@
     overflow-y: scroll; /* or auto */
     scrollbar-width: none;       /* Firefox */
     -ms-overflow-style: none; 
+    min-height: {{ section.settings.section_min_height }}px;
+    width: 100%;
   }
   .testimonials-section::-webkit-scrollbar {
     display: none;               /* Chrome, Safari, newer Edge */
@@ -69,6 +71,12 @@
   .review-row:nth-child(even) {
     margin-bottom: 30px;
   }
+  @media screen and (max-width: 749px) {
+    .review-row:nth-child(odd){
+        margin-bottom: -20px;
+        padding-right: 55px;
+    }
+  }
 {% endstyle %}
 {% schema %}
 {
@@ -84,6 +92,12 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Background Image"
+    },
+    {
+      "type": "number",
+      "id": "section_min_height",
+      "label": "Min Height",
+      "default": 500
     },
     {
       "type": "select",

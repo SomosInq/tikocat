@@ -101,9 +101,9 @@
           "widget_type": "review-widget"
         }
       },
-      "6143736321357441667": {
-        "type": "shopify://apps/tidio-live-chat-chatbots/blocks/app-embed/1002274d-fb18-4939-98f6-5f05a8deeadc",
-        "disabled": true,
+      "4096659318022801403": {
+        "type": "shopify://apps/moosedesk-ai-chatbot/blocks/md-help-form-widget/93b7f24a-a2e1-418d-ba5c-fd925adb43e1",
+        "disabled": false,
         "settings": {}
       }
     },

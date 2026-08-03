@@ -4594,3 +4594,10 @@ slideshow-component.slideshow-banner slideshow-controls button.slideshow-control
 slideshow-component.slideshow-banner slideshow-controls button.slideshow-control::after {
     display: none;
 }
+
+@media screen and (max-width: 749px) {
+  slideshow-component.slideshow-banner slideshow-arrows,
+  slideshow-component.slideshow-banner slideshow-controls {
+    bottom: 10px;
+  }
+}

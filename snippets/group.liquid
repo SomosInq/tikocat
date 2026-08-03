@@ -16,10 +16,16 @@
   if settings.background_media == 'image' and settings.match_image_aspect_ratio and settings.background_image != blank
     assign image_width = settings.background_image.width
     assign image_height = settings.background_image.height
+    assign mobile_image_width = settings.background_image_mobile.width
+    assign mobile_image_height = settings.background_image_mobile.height
+
     if image_width > 0 and image_height > 0
       capture aspect_ratio_style
-        echo 'aspect-ratio:' | append: image_width | append: '/' | append: image_height | append: ';'
-        echo ' height:auto;'
+        echo '--group-block-aspect-ratio: ' | append: image_width | append: '/' | append: image_height | append: ';'
+        if mobile_image_width > 0 and mobile_image_height > 0
+          echo ' --group-block-aspect-ratio-mobile: ' | append: mobile_image_width | append: '/' | append: mobile_image_height | append: ';'
+        endif
+        echo ' height: auto;'
       endcapture
     endif
   endif
@@ -30,6 +36,7 @@
     group-block
     group-block--height-{{ settings.height }}
     group-block--width-{{ settings.width }}
+    {% if aspect_ratio_style != blank %}group-block--match-aspect-ratio{% endif %}
     border-style
     spacing-style
     size-style
@@ -62,6 +69,7 @@
       background_video: settings.video,
       background_video_position: settings.video_position,
       background_image: settings.background_image,
+      background_image_mobile: settings.background_image_mobile,
       background_image_position: settings.background_image_position,
       placeholder: settings.placeholder
     %}
@@ -85,6 +93,14 @@
 </div>
 
 {% stylesheet %}
+  .group-block--match-aspect-ratio {
+    aspect-ratio: var(--group-block-aspect-ratio-mobile, var(--group-block-aspect-ratio));
+
+    @media screen and (min-width: 750px) {
+      aspect-ratio: var(--group-block-aspect-ratio);
+    }
+  }
+
   .group-block__link {
     position: absolute;
     inset: 0;

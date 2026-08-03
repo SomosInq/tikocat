@@ -215,6 +215,7 @@
     "related_products_metafield_source": "Shows products from this article's \"Related products\" metafield. Edit the metafield on the article to change what's shown here.",
     "hide_logo_on_home_page_help": "Logo will remain visible when sticky header is active",
     "hover_effects": "Applies to product and collection cards",
+    "image_mobile": "Shown on mobile screens instead of the image above. When \"Match image aspect ratio\" is enabled, the mobile image's ratio is used on mobile.",
     "link_info": "Optional: makes icon clickable",
     "logo_font": "Applies only when a logo is not selected",
     "logo_height": "Only affects header logo",
@@ -891,6 +892,7 @@
     "image": "Image",
     "image_border_radius": "Image corner radius",
     "image_gap": "Image gap",
+    "image_mobile": "Mobile image",
     // Image picker setting to upload custom image as icon
     "image_icon": "Image icon",
     "image_opacity": "Image opacity",

@@ -153,6 +153,12 @@
 #shopify-section-{{ section.id }} .ig-slider-progress.swiper-pagination-progressbar span.swiper-pagination-progressbar-fill {
     background: #1A1A1ACC;
 }
+
+@media screen and (max-width: 749px) {
+  #shopify-section-{{ section.id }} .heading-right {
+    flex-direction: column;
+  }
+}
 </style>
 {% schema %}
 {

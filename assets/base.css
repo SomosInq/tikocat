@@ -662,6 +662,20 @@ p:empty {
   object-fit: contain;
 }
 
+.background-image-container__image--mobile {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .background-image-container__image--desktop {
+    display: none;
+  }
+
+  .background-image-container__image--mobile {
+    display: block;
+  }
+}
+
 .svg-wrapper {
   color: currentcolor;
   display: inline-flex;

@@ -72,9 +72,29 @@
     margin-bottom: 30px;
   }
   @media screen and (max-width: 749px) {
+    .review-box {
+      padding: 20px 20px;
+    }
+    .review-box-heading {
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .review-box-heading img {
+      max-width: 60px;
+    }
+    .reviewer {
+      font-size: 18px;
+    }
+    .review-row:nth-child(even) .review-box {
+      padding-top: 40px;
+    }
     .review-row:nth-child(odd){
-        margin-bottom: -20px;
-        padding-right: 55px;
+        margin-bottom: -30px;
+        padding-right: 0;
+        padding-left: 70px;
+    }
+    .review-row:nth-child(even) {
+      padding-right: 70px;
     }
   }
 {% endstyle %}

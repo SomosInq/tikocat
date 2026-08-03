@@ -1,0 +1,132 @@
+{%- doc -%}
+  Renders a full-bleed, click-to-play video with block content (e.g. heading + text)
+  floating over it, positioned via flex alignment.
+
+  @param {string} children - The DOM content of the video-text block.
+  @param {object} settings - The settings of the video-text block.
+  @param {string} shopify_attributes - String with Shopify attributes for the editor.
+
+  @example
+  {% render 'video-text', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
+{%- enddoc -%}
+
+{% capture aspect_ratio %}
+  {% if settings.aspect_ratio == 'custom' %}
+    {{ settings.custom_aspect_ratio_width | default: 4 }}/{{ settings.custom_aspect_ratio_height | default: 5 }}
+  {% else %}
+    {{ settings.aspect_ratio | default: '9/16' }}
+  {% endif %}
+{% endcapture %}
+
+<div
+  class="
+    video-text-block
+    {% if settings.inherit_color_scheme == false %} color-{{ settings.color_scheme }}{% endif %}
+  "
+  style="
+    --border-radius: {{ settings.border_radius }}px;
+    aspect-ratio: {{ aspect_ratio | strip }};
+  "
+  {{ shopify_attributes }}
+  data-testid="video-text-block"
+>
+  {%- if settings.link != blank -%}
+    <a
+      href="{{ settings.link }}"
+      class="video-text-block__link"
+      {% if settings.open_in_new_tab %}
+        target="_blank" rel="noopener"
+      {% endif %}
+    ></a>
+  {%- endif -%}
+
+  <div class="video-text-block__media-wrapper">
+    {% if settings.source == 'uploaded' %}
+      {% render 'video',
+        video: settings.video,
+        video_class: 'video-text-block__media',
+        video_loop: settings.video_loop,
+        video_preview_image: settings.video.preview_image,
+        play_on_view: settings.play_on_view,
+        section_id: section.id
+      %}
+    {% else %}
+      {% render 'video',
+        video_from_url: true,
+        video: settings.video_url.id,
+        video_class: 'video-text-block__media',
+        video_type: settings.video_url.type,
+        video_alt: settings.alt,
+        video_preview_image: settings.cover_image,
+        play_on_view: settings.play_on_view,
+        section_id: section.id
+      %}
+    {% endif %}
+
+    {% if settings.toggle_overlay %}
+      {% render 'overlay', settings: settings %}
+    {% endif %}
+  </div>
+
+  <div
+    class="video-text-block__content spacing-style layout-panel-flex layout-panel-flex--column"
+    style="
+      {% render 'spacing-style', settings: settings %}
+      {% render 'layout-panel-style', settings: settings %}
+    "
+  >
+    {{- children -}}
+  </div>
+</div>
+
+{% stylesheet %}
+  .video-text-block {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--border-radius, 0);
+    width: 100%;
+  }
+
+  .video-text-block__link {
+    position: absolute;
+    inset: 0;
+  }
+
+  .video-text-block__link ~ :is(.video-text-block__content, .video-text-block__media-wrapper) {
+    pointer-events: none;
+
+    :is(a, button, input, textarea, select) {
+      pointer-events: auto;
+    }
+  }
+
+  .video-text-block__media-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+
+  .video-text-block__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-text-block__content {
+    position: relative;
+    z-index: var(--layer-raised);
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+
+    :is(a, button, input, textarea, select) {
+      pointer-events: auto;
+    }
+  }
+
+  .video-text-block .deferred-media__poster-icon {
+    background-color: rgb(0 0 0 / 0.55);
+    padding: var(--padding-md, 1rem);
+  }
+{% endstylesheet %}

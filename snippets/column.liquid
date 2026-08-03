@@ -1,0 +1,32 @@
+{%- doc -%}
+  Renders a lightweight vertical flex container for grouping block content.
+  A trimmed-down alternative to the `group` block: alignment, gap, sizing, and
+  color scheme only — no background media, overlay, border, or link settings.
+
+  @param {string} children - The DOM content of the column block.
+  @param {object} settings - The settings of the column block.
+  @param {string} shopify_attributes - String with Shopify attributes for the editor.
+
+  @example
+  {% render 'column', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
+{%- enddoc -%}
+
+<div
+  class="
+    group-block
+    group-block--height-{{ settings.height }}
+    group-block--width-{{ settings.width }}
+    size-style
+    {% if settings.inherit_color_scheme == false %} color-{{ settings.color_scheme }}{% endif %}
+  "
+  style="{% render 'size-style', settings: settings %}"
+  {{ shopify_attributes }}
+  data-testid="column-block"
+>
+  <div
+    class="group-block-content layout-panel-flex layout-panel-flex--column"
+    style="{% render 'layout-panel-style', settings: settings %}"
+  >
+    {{- children -}}
+  </div>
+</div>

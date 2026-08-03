@@ -16,17 +16,41 @@ class DeferredMedia extends Component {
 
   #abortController = new AbortController();
 
+  /** @type {IntersectionObserver | null} */
+  #playOnViewObserver = null;
+
   connectedCallback() {
     super.connectedCallback();
     const signal = this.#abortController.signal;
     // If we're to use deferred media for images, we will need to run this only when it's not an image type media
     document.addEventListener(ThemeEvents.mediaStartedPlaying, this.pauseMedia.bind(this), { signal });
     window.addEventListener(DialogCloseEvent.eventName, this.pauseMedia.bind(this), { signal });
+
+    if (this.hasAttribute('play-on-view')) {
+      this.#playOnViewObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              if (!this.getAttribute('data-media-loaded')) {
+                this.showDeferredMedia();
+              } else {
+                this.playMedia();
+              }
+            } else {
+              this.pauseMedia();
+            }
+          }
+        },
+        { threshold: 0.5 }
+      );
+      this.#playOnViewObserver.observe(this);
+    }
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     this.#abortController.abort();
+    this.#playOnViewObserver?.disconnect();
   }
 
   /**

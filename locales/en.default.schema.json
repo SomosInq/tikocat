@@ -224,6 +224,7 @@
     "video_alt_text": "Describe the video for assistive tech users",
     "video_autoplay": "Videos will be muted by default",
     "video_external": "Use a YouTube or Vimeo URL",
+    "video_play_on_view": "Video will be muted and will play automatically when scrolled into view, and pause when scrolled out of view",
     "pills_usage": "Used for applied filters, discount codes, and search suggestions",
     "media_type_info": "Features are populated from your menu links"
   },
@@ -415,6 +416,8 @@
     "variants": "Variants",
     "video": "Video",
     "video_section": "Video",
+    // Block with a full-bleed click-to-play video and floating text overlay in a corner
+    "video_text": "Video with text",
     "view_all_button": "View all",
     "pills": "Pills"
   },
@@ -1028,6 +1031,10 @@
     // Checkbox setting to enable a quick view popup from product cards
     "quick_view": "Quick view",
     "ratio": "Ratio",
+    // Width value in a custom W:H aspect ratio setting
+    "ratio_width": "Width ratio",
+    // Height value in a custom W:H aspect ratio setting
+    "ratio_height": "Height ratio",
     "read_only": "Read only",
     "reflection_opacity": "Reflection opacity",
     // Font weight option (400 weight, not bold or light)
@@ -1128,6 +1135,7 @@
     "video_alt_text": "Alt text",
     "video_autoplay": "Autoplay",
     "video_cover_image": "Cover image",
+    "video_play_on_view": "Play when in view",
     "video_external_url": "URL",
     "video_loop": "Loop video",
     "video_position": "Video position",

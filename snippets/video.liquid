@@ -4,6 +4,7 @@
   Shared parameters:
 
   @param {boolean} [video_autoplay] - Whether the video should autoplay
+  @param {boolean} [play_on_view] - Whether the video should automatically play (muted) when scrolled into view, and pause when scrolled out of view
   @param {boolean} [video_loop] - Whether the video should loop
   @param {string} [video_class] - Additional classes for the video element
   @param {string} [video_style] - Additional inline styles
@@ -126,6 +127,9 @@
     style="{{ video_style }}"
     {% if video_autoplay %}
       autoplay
+    {% endif %}
+    {% if play_on_view %}
+      play-on-view
     {% endif %}
     {{ additional_attributes }}
   >

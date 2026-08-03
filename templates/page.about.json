@@ -123,6 +123,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 12,
             "width": "custom",
             "custom_width": 40,
@@ -230,6 +232,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 12,
             "width": "custom",
             "custom_width": 57,
@@ -342,6 +346,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 6,
             "width": "fill",
             "custom_width": 100,
@@ -479,6 +485,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 6,
             "width": "fill",
             "custom_width": 100,
@@ -703,24 +711,19 @@
               },
               "blocks": {}
             },
-            "product_list_button_fkkh4P": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
+            "carousel_buttons_hbxTdY": {
+              "type": "carousel-buttons",
+              "name": "t:names.carousel_buttons",
               "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "icon_style": "arrow",
+                "icon_shape": "circle"
               },
               "blocks": {}
             }
           },
           "block_order": [
             "product_list_text_YbzN3B",
-            "product_list_button_fkkh4P"
+            "carousel_buttons_hbxTdY"
           ]
         },
         "static-product-card": {
@@ -854,6 +857,7 @@
               "type": "swatches",
               "name": "t:names.swatches",
               "settings": {
+                "show_swatch_label": true,
                 "product_swatches_alignment": "flex-start",
                 "product_swatches_alignment_mobile": "flex-start",
                 "hide_padding": false,

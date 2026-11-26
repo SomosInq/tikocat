@@ -108,6 +108,8 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
+                "horizontal_alignment_mobile": "",
+                "vertical_alignment_mobile": "",
                 "gap": 12,
                 "width": "fill",
                 "custom_width": 100,
@@ -998,6 +1000,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 6,
             "width": "fill",
             "custom_width": 100,
@@ -1104,6 +1108,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 6,
             "width": "fill",
             "custom_width": 100,
@@ -1361,6 +1367,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 12,
             "width": "custom",
             "custom_width": 80,
@@ -1693,6 +1701,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 12,
             "width": "custom",
             "custom_width": 65,
@@ -1784,7 +1794,7 @@
                     "text_yipgyA": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Yes! The clipper is designed for dogs, cats, and other furry pets of various sizes and coat types.</p>",
+                        "text": "<p>Yes! The nail grinder is designed for dogs, cats, and other furry pets of various sizes and nail types.</p>",
                         "line_through": false,
                         "opacity": 100,
                         "width": "100%",
@@ -1818,7 +1828,7 @@
                 "accordion_row_tpm77T": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Can it handle thick or long fur?",
+                    "heading": "Is this a good option for beginners?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1827,7 +1837,7 @@
                     "text_BnC3rT": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Yes, the powerful motor and sharp ceramic/stainless steel blades can trim thick, curly, and long coats. For heavily matted fur, it's recommended to gently remove tangles before grooming.</p>",
+                        "text": "<p>Absolutely! The cordless design, quiet operation, and protective guard make it ideal for first-time pet owners and experienced groomers alike.</p>",
                         "line_through": false,
                         "opacity": 100,
                         "width": "100%",
@@ -1857,241 +1867,11 @@
                   "block_order": [
                     "text_BnC3rT"
                   ]
-                },
-                "accordion_row_7aKFQA": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "How long does the battery last?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_rq4ghJ": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>A full charge provides up to 4 hours of cordless use, giving you plenty of time for a complete grooming session.</p>",
-                        "line_through": false,
-                        "opacity": 100,
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "show_custom_color": false,
-                        "custom_color": "#000000",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_rq4ghJ"
-                  ]
-                },
-                "accordion_row_BXwrKy": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "Can I use the clipper while it's charging?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_7MYTpG": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>Depending on the model, the clipper can typically be used while plugged in, ensuring you can finish grooming even if the battery runs low.</p>",
-                        "line_through": false,
-                        "opacity": 100,
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "show_custom_color": false,
-                        "custom_color": "#000000",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_7MYTpG"
-                  ]
-                },
-                "accordion_row_LHVecT": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "Are the blades safe for sensitive skin?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_ChjGxA": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>Yes. The skin-friendly blade design helps prevent pulling and minimizes irritation, making it suitable for pets with sensitive skin.</p>",
-                        "line_through": false,
-                        "opacity": 100,
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "show_custom_color": false,
-                        "custom_color": "#000000",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_ChjGxA"
-                  ]
-                },
-                "accordion_row_BTx68r": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "How do I clean the clipper after use?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_FLMfAG": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>Simply remove any loose hair with the included cleaning brush and apply a small amount of the included lubricating oil to keep the blades in optimal condition.</p>",
-                        "line_through": false,
-                        "opacity": 100,
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "show_custom_color": false,
-                        "custom_color": "#000000",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_FLMfAG"
-                  ]
-                },
-                "accordion_row_8kCG8e": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "Is this a good option for beginners?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_er9jkY": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>Absolutely! The cordless design, quiet operation, and easy-to-use guide combs make it ideal for first-time pet owners and experienced groomers alike.</p>",
-                        "line_through": false,
-                        "opacity": 100,
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "show_custom_color": false,
-                        "custom_color": "#000000",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_er9jkY"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_pdgDeW",
-                "accordion_row_tpm77T",
-                "accordion_row_7aKFQA",
-                "accordion_row_BXwrKy",
-                "accordion_row_LHVecT",
-                "accordion_row_BTx68r",
-                "accordion_row_8kCG8e"
+                "accordion_row_tpm77T"
               ]
             }
           },
@@ -2147,6 +1927,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
+            "horizontal_alignment_mobile": "",
+            "vertical_alignment_mobile": "",
             "gap": 12,
             "width": "fill",
             "custom_width": 100,

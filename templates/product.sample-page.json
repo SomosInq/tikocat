@@ -934,7 +934,7 @@
       "settings": {
         "section_width": "page-width",
         "custom_width": true,
-        "custom_width_val": 600,
+        "custom_width_val": 700,
         "show_overflow": true,
         "slides_per_view": 1,
         "slides_per_view_mobile": 1,

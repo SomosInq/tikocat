@@ -493,9 +493,7 @@
           ]
         }
       },
-      "custom_css": [
-        "@media(max-width:749px){.thumbnail-slider,.thumbnail-list,.product__thumbs,.product-gallery__thumbnails{display:flex!important;flex-direction:row!important;gap:8px!important;overflow-x:auto!important;}.thumbnail-list__item,.thumbnail{display:block!important;flex:0 0 56px!important;}}"
-      ],
+      "custom_css": [],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",

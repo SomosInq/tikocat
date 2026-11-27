@@ -20,14 +20,14 @@
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": true,
-            "icons_style": "none",
+            "icons_style": "arrow",
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "left",
-            "thumbnail_width": 200,
+            "thumbnail_width": 110,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
-            "media_fit": "cover",
+            "media_fit": "contain",
             "media_radius": 20,
             "extend_media": false,
             "zoom": true,
@@ -35,8 +35,8 @@
             "hide_variants": true,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 80,
+            "padding-inline-end": 80
           },
           "blocks": {}
         },
@@ -447,6 +447,7 @@
           ]
         }
       },
+      "custom_css": [],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",

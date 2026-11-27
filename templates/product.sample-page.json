@@ -427,51 +427,12 @@
                   "block_order": [
                     "text_WzKa8d"
                   ]
-                },
-                "accordion_row_hTHDrB": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "image_7WmYyy": {
-                      "type": "image",
-                      "name": "t:names.image",
-                      "settings": {
-                        "image": "shopify://shop_images/2.jpg",
-                        "link": "",
-                        "image_ratio": "adapt",
-                        "width": "fill",
-                        "custom_width": 100,
-                        "width_mobile": "fill",
-                        "custom_width_mobile": 100,
-                        "height": "fit",
-                        "border": "none",
-                        "border_width": 1,
-                        "border_opacity": 100,
-                        "border_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "image_7WmYyy"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_NVPGxy",
                 "accordion_row_fmxyCA",
-                "accordion_row_aAJKnP",
-                "accordion_row_hTHDrB"
+                "accordion_row_aAJKnP"
               ]
             }
           },

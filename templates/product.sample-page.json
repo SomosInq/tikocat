@@ -482,18 +482,6 @@
         "padding-block-end": 0
       }
     },
-    "rounded_corner_8mGfVq": {
-      "type": "rounded-corner",
-      "name": "Rounded Corner",
-      "settings": {
-        "corner_position": "top",
-        "height": 35,
-        "front_color": "#f2f2ff",
-        "back_color": "",
-        "border_radius": 22,
-        "float": true
-      }
-    },
     "section_bb7nha": {
       "type": "section",
       "blocks": {
@@ -2231,7 +2219,6 @@
   },
   "order": [
     "main",
-    "rounded_corner_8mGfVq",
     "section_bb7nha",
     "block_slider_yBKKJw",
     "section_G97XWP",

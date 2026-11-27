@@ -435,6 +435,29 @@
                 "accordion_row_aAJKnP"
               ]
             },
+            "image_bE3WeK": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/useepay.png",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "image_DYfJJz": {
               "type": "image",
               "name": "t:names.image",
@@ -467,6 +490,7 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "accordion_3teqBh",
+            "image_bE3WeK",
             "image_DYfJJz"
           ]
         }
@@ -1031,7 +1055,7 @@
             "show_labels": true,
             "label_before": "Before",
             "label_after": "After",
-            "container_height": 300
+            "container_height": 600
           },
           "blocks": {}
         }
@@ -1041,6 +1065,7 @@
         "text_imNAnp",
         "before_and_after_9GYcRD"
       ],
+      "custom_css": [],
       "name": "Before and After",
       "settings": {
         "content_direction": "column",
@@ -1053,7 +1078,7 @@
         "gap": 0,
         "section_width": "page-width",
         "section_height": "",
-        "section_height_custom": 50,
+        "section_height_custom": 0,
         "color_scheme": "scheme-2",
         "background_media": "none",
         "video_position": "cover",
@@ -1237,91 +1262,13 @@
                     "product_feature_2": "– Often single-speed"
                   },
                   "blocks": {}
-                },
-                "comparison_row_e6G74B": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "Length Options",
-                    "show_icon_1": true,
-                    "product_feature_1": "– 6 guide combs included",
-                    "show_icon_2": false,
-                    "product_feature_2": "– Usually fewer attachments"
-                  },
-                  "blocks": {}
-                },
-                "comparison_row_dLPQhh": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "Blade System",
-                    "show_icon_1": true,
-                    "product_feature_1": "– Precision stainless steel & ceramic blades",
-                    "show_icon_2": true,
-                    "product_feature_2": "–  Basic steel blades"
-                  },
-                  "blocks": {}
-                },
-                "comparison_row_d3YhDE": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "LCD Display",
-                    "show_icon_1": true,
-                    "product_feature_1": "– Battery status display",
-                    "show_icon_2": true,
-                    "product_feature_2": "– Not commonly included"
-                  },
-                  "blocks": {}
-                },
-                "comparison_row_9tcyX6": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "Coat Compatibility",
-                    "show_icon_1": true,
-                    "product_feature_1": "– Suitable for fine, thick, curly, and matted coats",
-                    "show_icon_2": true,
-                    "product_feature_2": "– Often optimized for light grooming only"
-                  },
-                  "blocks": {}
-                },
-                "comparison_row_P6GDTb": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "Ergonomic Design",
-                    "show_icon_1": true,
-                    "product_feature_1": "– Anti-slip handle for improved control",
-                    "show_icon_2": true,
-                    "product_feature_2": "– Standard grip"
-                  },
-                  "blocks": {}
-                },
-                "comparison_row_wgfjE7": {
-                  "type": "_comparison-row",
-                  "name": "Comparision Row",
-                  "settings": {
-                    "criteria": "Complete Kit",
-                    "show_icon_1": true,
-                    "product_feature_1": "– Includes combs, scissors, cleaning accessories, and charging cable",
-                    "show_icon_2": true,
-                    "product_feature_2": "– Often clipper-focused kits"
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "comparison_row_aqRgRg",
                 "comparison_row_xVJ666",
                 "comparison_row_JrRJWJ",
-                "comparison_row_KRzdVg",
-                "comparison_row_e6G74B",
-                "comparison_row_dLPQhh",
-                "comparison_row_d3YhDE",
-                "comparison_row_9tcyX6",
-                "comparison_row_P6GDTb",
-                "comparison_row_wgfjE7"
+                "comparison_row_KRzdVg"
               ]
             },
             "buy_buttons_myDfLy": {
@@ -1346,6 +1293,7 @@
                 },
                 "add-to-cart": {
                   "type": "add-to-cart",
+                  "disabled": true,
                   "static": true,
                   "settings": {
                     "style_class": "button"

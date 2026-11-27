@@ -388,7 +388,7 @@
                 "accordion_row_aAJKnP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Specifications",
+                    "heading": "Warranty Policy",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -427,12 +427,57 @@
                   "block_order": [
                     "text_WzKa8d"
                   ]
+                },
+                "accordion_row_XeLybJ": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "Shipping & Returns",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_VxUkrA": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "line_through": false,
+                        "opacity": 100,
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "show_custom_color": false,
+                        "custom_color": "#000000",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_VxUkrA"
+                  ]
                 }
               },
               "block_order": [
                 "accordion_row_NVPGxy",
                 "accordion_row_fmxyCA",
-                "accordion_row_aAJKnP"
+                "accordion_row_aAJKnP",
+                "accordion_row_XeLybJ"
               ]
             },
             "image_bE3WeK": {

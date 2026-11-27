@@ -398,7 +398,7 @@
                     "text_FPMATr": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>{{ closest.product.metafields.custom.uses_applications | metafield_tag }}</p>",
                         "line_through": false,
                         "opacity": 100,
                         "width": "100%",
